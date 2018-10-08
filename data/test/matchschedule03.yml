@@ -1,0 +1,54 @@
+---
+type: question
+id: matchteams
+key: match
+role: matchscout
+priority: 5
+dataneeded: 1
+expvalue: 2
+inputs:
+  - 
+    type: label
+    label: What teams are assigned to play these spots in Match ##match##?
+  - 
+    type: list
+    listdata: team
+    label: <br>Red 1
+    style: color:#FF0000;
+    saveas: ##match##.red1
+  - 
+    type: list
+    listdata: team
+    label: <br>Red 2
+    style: color:#FF0000;
+    saveas: ##match##.red2
+  - 
+    type: list
+    listdata: team
+    label: <br>Red 3
+    style: color:#FF0000;
+    saveas: ##match##.red3
+  - 
+    type: list
+    listdata: team
+    label: <br>Blue 1
+    style: color:#0000FF;
+    saveas: ##match##.blue1
+  - 
+    type: list
+    listdata: team
+    label: <br>Blue 2
+    style: color:#0000FF;
+    saveas: ##match##.blue2
+  - 
+    type: list
+    listdata: team
+    label: <br>Blue 3
+    style: color:#0000FF;
+    saveas: ##match##.blue3
+  - 
+    type: label
+    label: <br>
+  - 
+    type: submit
+    label: Submit
