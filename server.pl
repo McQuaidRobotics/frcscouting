@@ -285,7 +285,7 @@ sub userupdate{my $mux=shift(@_);my $id=shift(@_);my $m='';my $doq=0;
     $m.=$user{$id}." ($id) ";
     $m.="<input type=button style=\"font-size:'+ht(15)+'px;float:right;\" value=\"Logout\" onClick=\"document.cookie=\\\'user=\\\';location.href=\\\'/\\\';\">";
     if($l>=2){$m.="<br><div id=usercnt style=\"margin-top:0.5ex;\"></div>";}
-    if($l>=2){$m.="<br><select style=\"font-size:'+ht(15)+'px;\" id=setrole><option value=\"\"></option>";
+    if($l>=1){$m.="<br><select style=\"font-size:'+ht(15)+'px;\" id=setrole><option value=\"\"></option>";
       foreach my $x(keys %roles){$m.="<option value=\"$x\">$x</option>";}
       $m.="</select> <input type=button style=\"font-size:'+ht(15)+'px;\" value=\"Set Role\" onClick=\"sendData(\\\'setrole \\\'+document.getElementById(\\\'setrole\\\').value);\">";
     }
@@ -363,7 +363,7 @@ sub questiondata{my $q=shift(@_);my $uid=shift(@_);my $m='';
 sub runaction{my $a=shift(@_);
   my ($c,$a)=split(/ /,$a,2);
   if($c eq 'addquestion'){
-    $db->do("update question set numleft=numleft+1 where id='$a'");
+    $db->do("update question set numleft=1 where id='$a' and numleft<=1");
   }
   if($c eq 'addtextdata'){
     my ($ki,$d)=split(/ /,$a,2);my ($k,$i)=split(/\./,$ki,2);

@@ -2,7 +2,7 @@
 type: question
 id: teamname
 key: team
-role: pitscout
+role: dataentry
 priority: 6
 dataneeded: 1
 expvalue: 1
