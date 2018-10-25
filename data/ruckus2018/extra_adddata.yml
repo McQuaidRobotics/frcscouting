@@ -1,0 +1,18 @@
+---
+type: input
+id: extrad
+key: 
+reqlevel: 5
+title: Add Data
+inputs:
+  - 
+    type: text
+    label: ID:
+  - 
+    type: text
+    label: <br>Value: 
+  - 
+    type: submit
+    label: Submit
+    do:
+      - addtextdata ##val0## ##val1##

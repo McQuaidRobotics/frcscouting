@@ -1,0 +1,6 @@
+---
+type: list
+id: yesno
+populate:
+  - Yes
+  - No
