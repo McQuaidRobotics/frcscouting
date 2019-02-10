@@ -1,0 +1,6 @@
+---
+type: list
+id: sandstormnavigation
+populate:
+  - vision/cameras
+  - autonomous

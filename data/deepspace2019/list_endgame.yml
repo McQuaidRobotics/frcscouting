@@ -3,6 +3,7 @@ type: list
 id: endgame
 populate:
   - Nothing
-  - Parked
-  - Climb Attempted
-  - Climb Succeeded
+  - Hab Level 1
+  - Hab Level 2
+  - Hab Level 3
+  - Buddy Climbed

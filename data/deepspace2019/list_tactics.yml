@@ -2,8 +2,6 @@
 type: list
 id: tactic
 populate:
-  - Switch
-  - Scale
-  - Vault
+  - Hatch
+  - Cargo
   - Defense
-  - Endgame

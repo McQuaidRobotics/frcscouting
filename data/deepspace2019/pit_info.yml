@@ -12,20 +12,46 @@ inputs:
     label: Please visit the pit for team ##team## and answer the following questions:<br>
   - 
     type: list
-    listdata: tactic
-    label: <br>What is the primary strategy focus for the robot?
-    saveas: ##team##.strategyfocus
+    listdata: priority
+    label: <br>What was the first priority for the robot?
+    saveas: ##team##.strategyfocus1
   - 
     type: list
-    listdata: autonomous
-    label: <br>What kind of autonomous does the robot have?
-    saveas: ##team##.pitauto
-  - 
+    listdata: priority
+    label: <br>What was the second priority for the robot?
+    saveas: ##team##.strategyfocus2
+  -
+    type: list
+    listdata: priority
+    label: <br>What was the third priority for the robot?
+    saveas: ##team##.strategyfocus3
+  -   
+    type: list
+    listdata: Sandstorm
+    label: <br>What can your robot do during sandstorm?
+    saveas: ##team##.pitsandstorm
+  -     
+    type: list
+    listdata: driveSystem
+    label: <br>What kind of drive system does your robot use
+    saveas: ##team##.drivesystem
+  -
     type: list
     listdata: yesno
-    label: <br>Can the robot climb?
-    saveas: ##team##.canclimb
+    label: <br>can your robot start from the 2nd Hab level
+    saveas: ##team##.pitStartLocation
   - 
+    type: list
+    listdata: sandstormnavigation
+    label: <br>does your robot use vision or autonomous during sandstorm period
+    saveas: ##team##.sandstormnavigationtype
+  -
+    type: number
+    label: <br>How much time (in hours) has your programming team had on the robot?
+  -
+    type: label
+    type: <br>
+  -    
     type: text
     label: <br>Anything unusual or special to note about the robot?
   - 
@@ -34,5 +60,6 @@ inputs:
   - 
     type: submit
     label: Submit
+  -
     do:
       - eval $x='##val4##';if($x){runaction("addtextdata ##team##.comments Pit Scout - $x");}
