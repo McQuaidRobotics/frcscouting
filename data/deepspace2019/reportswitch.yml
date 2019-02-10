@@ -1,0 +1,39 @@
+---
+type: report
+id: reportswitch
+key: 
+reqlevel: 1
+title: Top Switch Robots
+variables:
+  - 
+    name: data
+    type: table
+    key: team
+    keytitle: Team
+    source: .team
+    columns:
+      - 
+        name: totcnt
+        title: Total Matches
+        type: count
+        source: %:##team##.ownswitch
+      - 
+        name: totown
+        title: Cubes In Own Switch
+        type: sum
+        source: %:##team##.ownswitch
+      - 
+        name: totopp
+        title: Cubes In Opponent Switch
+        type: sum
+        source: %:##team##.opponentswitch
+      - 
+        name: switchavg
+        title: Switch Cube Average
+        type: sql
+        source: (totown+totopp+0.0)/totcnt
+        filter: totcnt>0
+    order: switchavg desc
+output: >-
+  Top Switch Robots<br>
+  ##data##

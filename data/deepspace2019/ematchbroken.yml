@@ -1,0 +1,23 @@
+---
+type: question
+id: ematchbroken
+key: team
+role: matchscout
+priority: 4
+dataneeded: 0
+expvalue: 1
+inputs:
+  - 
+    type: label
+    label: The robot for team ##team## had some sort of breakdown during the last match.  Please give a brief description and someone will go check in on them in the pits later.<br>
+    style: font-size:'+ht(20)+'px;
+  - 
+    type: text
+    label: <br>
+  - 
+    type: submit
+    label: Submit
+    do:
+      - addtext ##team##.comments Robot Broken - ##val1##
+      - addquestion ##team##.pitbroken
+      - delay ##team##.pitbroken 20 minutes
