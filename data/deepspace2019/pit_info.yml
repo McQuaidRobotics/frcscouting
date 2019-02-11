@@ -48,9 +48,50 @@ inputs:
   -
     type: number
     label: <br>How much time (in hours) has your programming team had on the robot?
+    saveas: ##team##.programmingtime
   -
     type: label
     type: <br>
+  - 
+    type: list
+    listdata: yesno
+    label: <br>can your robot do hatch during sandstorm
+    saveas: ##team##.candohatchduringsandstorm 
+  -
+    type: list
+    listdata: yesno
+    label: <br>can your robot do cargo during sandstorm
+    saveas: ##team##.candocargoduringsandstorm  
+  -
+    type: list
+    listdata: level
+    label: <br>What is the highest level of the rocket your robot can put hatches
+    saveas: ##team##.rockethatchlevel
+  -
+    type: list
+    listdata: level
+    label: <br>What is the highest leve of the rocket your robot can put cargo
+    saveas: ##team##.rocketcargolevel
+  -
+    type: list
+    listdata: yesno
+    label: <br>can your robot do hatch on the cargoship
+    saveas: ##team##.candocargoshiphatch
+  -
+    type: list
+    listdata: yesno
+    label: <br>can your robot do cargo on the cargoship
+    saveas: ##team##.candocargoshipcargo
+  -
+    type: list
+    listdata: yesno
+    label: <br>can your robot lift other robots
+    saveas: ##team##.canbuddylift
+  -
+    type: list
+    listdata: level
+    label: <br> What level can your robot climb to
+    saveas: ##team##.climblevel
   -    
     type: text
     label: <br>Anything unusual or special to note about the robot?
