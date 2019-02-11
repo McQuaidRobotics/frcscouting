@@ -27,15 +27,35 @@ variables: A list of variables referenced in the file that are not already decla
 	  - Count: The number of entries in the number table that match the filter, if provided
 	  - Sum: Add together entries in the number table that match the source and filter
 	  - Sql: 
-	key: 
-	keytitle: 
-	columns: 
-	order: 
-	filter: 
+	key: The group to take the data from
+	keytitle: A string title for the key group - used as a table header
+	columns: Columns for a table - a set of variables where each variable is another column on the table
+	order: Put into sql to order a table output
+	filter: put into sql to filter a table output
 Ex. of variable:
   - 
     name: teamr1
     source: ##match##.red1
     type: string
-inputs: 
-output:
+inputs: A list of interactable elements on a page. Inputs can have the following:
+  -
+    type: enum: [label, tally, submit, text, button, list, number]
+	  - label: Prints label to the screen
+	  - tally: A numerical input that you use + and - to increment
+	  - submit: A button that can have actions done upon being interacted with
+	  - text: An input that accepts a string
+	  - button: A button that can have actions done on being interacted with
+	  - list: Select a value from a list
+	  - number: An input that accepts a number
+	listdata: The list from which you select a value from
+	label: A string that will be shown as the label. Can include <br>
+	style: CSS styling to be put on the input
+	do: A series of commands that will be executed upon the input being interacted with
+	saveas: the name to save the value as. Can be referenced later in variables
+output: HTML output to the screen. Reference variables by using ##variable##. 
+  Ex:
+output: >-
+  Team ##team##<br>
+  ##teamname##<br>
+  Average Cargo - ##cargoavg##<br>
+  ##comments##
