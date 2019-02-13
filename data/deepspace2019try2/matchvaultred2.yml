@@ -1,0 +1,63 @@
+---
+type: question
+id: matchvaultred2
+key: match
+role: matchscout
+priority: 5
+dataneeded: 0
+expvalue: 3
+variables:
+  - 
+    name: teamr1
+    source: ##match##.red1
+    type: string
+  - 
+    name: teamr2
+    source: ##match##.red2
+    type: string
+  - 
+    name: teamr3
+    source: ##match##.red3
+    type: string
+inputs:
+  - 
+    type: label
+    label: You will be watching the red vault for match ##match##.  Please record as robots feed cubes into the exchange and as they are placed into the vault.  Do not decrease numbers for cubes fed back out of the exchange by the human player.
+    style: font-size:'+ht(20)+'px;color:#FF0000;
+  - 
+    type: tally
+    label: ##teamr1##
+    saveas: ##match##:##teamr1##.vaultcubes
+    style: color:#FF0000;position:absolute;top:25%;left:5%;width:40%;height:18%;
+  - 
+    type: tally
+    label: ##teamr2##
+    saveas: ##match##:##teamr2##.vaultcubes
+    style: color:#FF0000;position:absolute;top:45%;left:5%;width:40%;height:18%;
+  - 
+    type: tally
+    label: ##teamr3##
+    saveas: ##match##:##teamr3##.vaultcubes
+    style: color:#FF0000;position:absolute;top:65%;left:5%;width:40%;height:18%;
+  - 
+    type: tally
+    label: Force
+    saveas: ##match##:red.cubesforce
+    style: position:absolute;top:25%;left:55%;width:40%;height:18%;
+  - 
+    type: tally
+    label: Levitate
+    saveas: ##match##:red.cubeslevitate
+    style: position:absolute;top:45%;left:55%;width:40%;height:18%;
+  - 
+    type: tally
+    label: Boost
+    saveas: ##match##:red.cubesboost
+    style: position:absolute;top:65%;left:55%;width:40%;height:18%;
+  - 
+    type: submit
+    label: Match Complete
+    style: position:absolute;top:85%;left:25%;width:50%;height:12%;
+    do:
+      - eval $db->do("update question set numleft=0 where id like '##match##.match%'");
+      - markdone

@@ -1,0 +1,47 @@
+---
+type: question
+id: matchautored
+key: match
+role: matchscout
+priority: 3
+dataneeded: 0
+expvalue: 2
+variables:
+  - 
+    name: teamr1
+    source: ##match##.red1
+    type: string
+  - 
+    name: teamr2
+    source: ##match##.red2
+    type: string
+  - 
+    name: teamr3
+    source: ##match##.red3
+    type: string
+inputs:
+  - 
+    type: label
+    label: Watching the red alliance during autonomous in match ##match##, what did each robot do?
+    style: font-size:'+ht(20)+'px;color:#FF0000;
+  - 
+    type: list
+    listdata: autonomous
+    label: <br>##teamr1##
+    saveas: ##match##:##teamr1##.auto
+    style: color:#FF0000;
+  - 
+    type: list
+    listdata: autonomous
+    label: <br>##teamr2##
+    saveas: ##match##:##teamr2##.auto
+    style: color:#FF0000;
+  - 
+    type: list
+    listdata: autonomous
+    label: <br>##teamr3##
+    saveas: ##match##:##teamr3##.auto
+    style: color:#FF0000;
+  - 
+    type: submit
+    label: Submit

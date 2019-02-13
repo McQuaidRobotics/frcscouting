@@ -1,0 +1,15 @@
+---
+type: input
+id: comment
+key: team
+reqlevel: 3
+title: Add Comment
+inputs:
+  - 
+    type: text
+    label: Add a comment for team ##team##<br>
+  - 
+    type: submit
+    label: Submit
+    do:
+      - eval $x='##val0##';if($x){runaction("addtextdata ##team##.comments Comment - $x");}

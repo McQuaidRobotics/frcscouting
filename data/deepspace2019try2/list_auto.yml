@@ -1,0 +1,9 @@
+---
+type: list
+id: autonomous
+populate:
+  - None
+  - Move
+  - Move+Switch
+  - Move+Scale
+  - Multi-Cube
