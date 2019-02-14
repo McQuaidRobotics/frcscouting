@@ -1,8 +1,0 @@
----
-type: list
-id: endgame
-populate:
-  - Nothing
-  - Parked
-  - Climb Attempted
-  - Climb Succeeded

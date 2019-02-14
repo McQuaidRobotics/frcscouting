@@ -1,9 +1,0 @@
----
-type: list
-id: driveSystem
-populate: 
-  - Tank
-  - Swerve
-  - Slide
-  - Mecanum
-  - Holonomic

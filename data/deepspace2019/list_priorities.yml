@@ -1,7 +1,0 @@
----
-type: list
-id: priority
-populate:
-  - Hatches
-  - Cargo
-  - Climbing

@@ -1,9 +1,0 @@
----
-type: list
-id: tactic
-populate:
-  - Switch
-  - Scale
-  - Vault
-  - Defense
-  - Endgame
