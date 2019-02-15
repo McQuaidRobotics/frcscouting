@@ -16,17 +16,17 @@ variables:
         name: totcnt
         title: Total Matches
         type: count
-        source: %:##team##.ownswitch
+        source: %:$$team$$.ownswitch
       - 
         name: totown
         title: Cubes In Own Switch
         type: sum
-        source: %:##team##.ownswitch
+        source: %:$$team$$.ownswitch
       - 
         name: totopp
         title: Cubes In Opponent Switch
         type: sum
-        source: %:##team##.opponentswitch
+        source: %:$$team$$.opponentswitch
       - 
         name: switchavg
         title: Switch Cube Average
@@ -36,4 +36,4 @@ variables:
     order: switchavg desc
 output: >-
   Top Switch Robots<br>
-  ##data##
+  $$data$$

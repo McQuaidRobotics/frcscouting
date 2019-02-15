@@ -16,25 +16,25 @@ variables:
         name: totcnt
         title: Total Matches
         type: count
-        source: %:##team##.vaultcubes
+        source: %:$$team$$.vaultcubes
       - 
         name: totavg
         title: Overall Vault Cube Average
         type: average
-        source: %:##team##.vaultcubes
+        source: %:$$team$$.vaultcubes
       - 
         name: partcnt
         title: Vault Matches
         type: count
-        source: %:##team##.vaultcubes
+        source: %:$$team$$.vaultcubes
         filter: val>0
       - 
         name: partavg
         title: Vault Cube Average
         type: average
-        source: %:##team##.vaultcubes
+        source: %:$$team$$.vaultcubes
         filter: val>0
     order: partavg desc
 output: >-
   Top Vault Robots<br>
-  ##data##
+  $$data$$

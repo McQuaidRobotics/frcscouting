@@ -9,67 +9,67 @@ expvalue: 3
 variables:
   - 
     name: teamr1
-    source: ##match##.red1
+    source: $$match$$.red1
     type: string
   - 
     name: teamr2
-    source: ##match##.red2
+    source: $$match$$.red2
     type: string
   - 
     name: teamr3
-    source: ##match##.red3
+    source: $$match$$.red3
     type: string
   - 
     name: teamb1
-    source: ##match##.blue1
+    source: $$match$$.blue1
     type: string
   - 
     name: teamb2
-    source: ##match##.blue2
+    source: $$match$$.blue2
     type: string
   - 
     name: teamb3
-    source: ##match##.blue3
+    source: $$match$$.blue3
     type: string
 inputs:
   - 
     type: label
-    label: You will be watching the red switch for match ##match##.  Please record as robots place cubes in the switch and decrease numbers if they fall back out.
+    label: You will be watching the red switch for match $$match$$.  Please record as robots place cubes in the switch and decrease numbers if they fall back out.
     style: font-size:'+ht(20)+'px;color:#FF0000;
   - 
     type: tally
-    label: ##teamr1##
-    saveas: ##match##:##teamr1##.ownswitch
+    label: $$teamr1$$
+    saveas: $$match$$:$$teamr1$$.ownswitch
     style: color:#FF0000;position:absolute;top:25%;left:5%;width:40%;height:18%;
   - 
     type: tally
-    label: ##teamr2##
-    saveas: ##match##:##teamr2##.ownswitch
+    label: $$teamr2$$
+    saveas: $$match$$:$$teamr2$$.ownswitch
     style: color:#FF0000;position:absolute;top:45%;left:5%;width:40%;height:18%;
   - 
     type: tally
-    label: ##teamr3##
-    saveas: ##match##:##teamr3##.ownswitch
+    label: $$teamr3$$
+    saveas: $$match$$:$$teamr3$$.ownswitch
     style: color:#FF0000;position:absolute;top:65%;left:5%;width:40%;height:18%;
   - 
     type: tally
-    label: ##teamb1##
-    saveas: ##match##:##teamb1##.opponentswitch
+    label: $$teamb1$$
+    saveas: $$match$$:$$teamb1$$.opponentswitch
     style: color:#0000FF;position:absolute;top:25%;left:55%;width:40%;height:18%;
   - 
     type: tally
-    label: ##teamb2##
-    saveas: ##match##:##teamb2##.opponentswitch
+    label: $$teamb2$$
+    saveas: $$match$$:$$teamb2$$.opponentswitch
     style: color:#0000FF;position:absolute;top:45%;left:55%;width:40%;height:18%;
   - 
     type: tally
-    label: ##teamb3##
-    saveas: ##match##:##teamb3##.opponentswitch
+    label: $$teamb3$$
+    saveas: $$match$$:$$teamb3$$.opponentswitch
     style: color:#0000FF;position:absolute;top:65%;left:55%;width:40%;height:18%;
   - 
     type: submit
     label: Match Complete
     style: position:absolute;top:85%;left:25%;width:50%;height:12%;
     do:
-      - eval $db->do("update question set numleft=0 where id like '##match##.match%'");
+      - eval $db->do("update question set numleft=0 where id like '$$match$$.match%'");
       - markdone

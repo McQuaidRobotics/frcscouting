@@ -9,32 +9,32 @@ expvalue: 2
 variables:
   - 
     name: teamr1
-    source: ##match##.red1
+    source: $$match$$.red1
     type: string
   - 
     name: teamr2
-    source: ##match##.red2
+    source: $$match$$.red2
     type: string
   - 
     name: teamr3
-    source: ##match##.red3
+    source: $$match$$.red3
     type: string
   - 
     name: teamb1
-    source: ##match##.blue1
+    source: $$match$$.blue1
     type: string
   - 
     name: teamb2
-    source: ##match##.blue2
+    source: $$match$$.blue2
     type: string
   - 
     name: teamb3
-    source: ##match##.blue3
+    source: $$match$$.blue3
     type: string
 inputs:
   - 
     type: label
-    label: When the final scores for match ##match## are announced please fill in the data below.
+    label: When the final scores for match $$match$$ are announced please fill in the data below.
     style: font-size:'+ht(20)+'px;
   - 
     type: number
@@ -59,17 +59,17 @@ inputs:
     type: submit
     label: Submit
     do:
-      - addnumdata ##match##:##teamr1##.score ##val1##
-      - addnumdata ##match##:##teamr2##.score ##val1##
-      - addnumdata ##match##:##teamr3##.score ##val1##
-      - addnumdata ##match##:##teamr1##.rankpoints ##val2##
-      - addnumdata ##match##:##teamr2##.rankpoints ##val2##
-      - addnumdata ##match##:##teamr3##.rankpoints ##val2##
-      - addnumdata ##match##:##teamb1##.score ##val3##
-      - addnumdata ##match##:##teamb2##.score ##val3##
-      - addnumdata ##match##:##teamb3##.score ##val3##
-      - addnumdata ##match##:##teamb1##.score ##val4##
-      - addnumdata ##match##:##teamb2##.score ##val4##
-      - addnumdata ##match##:##teamb3##.score ##val4##
-      - eval $x=##match##;$x++;runaction("addquestion $x.matchstart");
+      - addnumdata $$match$$:$$teamr1$$.score $$val1$$
+      - addnumdata $$match$$:$$teamr2$$.score $$val1$$
+      - addnumdata $$match$$:$$teamr3$$.score $$val1$$
+      - addnumdata $$match$$:$$teamr1$$.rankpoints $$val2$$
+      - addnumdata $$match$$:$$teamr2$$.rankpoints $$val2$$
+      - addnumdata $$match$$:$$teamr3$$.rankpoints $$val2$$
+      - addnumdata $$match$$:$$teamb1$$.score $$val3$$
+      - addnumdata $$match$$:$$teamb2$$.score $$val3$$
+      - addnumdata $$match$$:$$teamb3$$.score $$val3$$
+      - addnumdata $$match$$:$$teamb1$$.score $$val4$$
+      - addnumdata $$match$$:$$teamb2$$.score $$val4$$
+      - addnumdata $$match$$:$$teamb3$$.score $$val4$$
+      - eval $x=$$match$$;$x++;runaction("addquestion $x.matchstart");
       - markdone

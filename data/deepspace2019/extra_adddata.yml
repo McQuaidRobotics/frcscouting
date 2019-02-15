@@ -15,4 +15,4 @@ inputs:
     type: submit
     label: Submit
     do:
-      - addtextdata ##val0## ##val1##
+      - addtextdata $$val0$$ $$val1$$

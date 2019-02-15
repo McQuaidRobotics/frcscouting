@@ -1,5 +1,9 @@
 ---
 type: enum: [question, input, list, report]
+  - Question: a page with inputs and buttons that can be answered and interacted with. Questions get queued to be answered
+  - Input: a page with inputs and buttons that can be answered and interacted with. Inputs can be navigated to and are not queued like questions.
+  - List: A file that contains a list of items that can be referenced by other pages.
+  - Report: A page that contains output of data previously entered. Reports cannot be interacted with, just viewed. 
 id: a unique string, reference id on other pages. Suggestion: id = pagename
 key: a string specifying the grouping of questions - Generates a question for each member of the data entry specified. Optional, can have multiple separated by periods. 
 role: a string specifying the role that the question will show up to. If a user has a role set they will only get questions from that role.
@@ -26,7 +30,7 @@ variables: A list of variables referenced in the file that are not already decla
 	  - Stringcount: The number of entries in the string table
 	  - Count: The number of entries in the number table that match the filter, if provided
 	  - Sum: Add together entries in the number table that match the source and filter
-	  - Sql: 
+	  - Sql: straight SQL code. Should not be needed, but exists if nothing else works.
 	key: The group to take the data from
 	keytitle: A string title for the key group - used as a table header
 	columns: Columns for a table - a set of variables where each variable is another column on the table
@@ -42,7 +46,7 @@ inputs: A list of interactable elements on a page. Inputs can have the following
     type: enum: [label, tally, submit, text, button, list, number]
 	  - label: Prints label to the screen
 	  - tally: A numerical input that you use + and - to increment
-	  - submit: A button that can have actions done upon being interacted with
+	  - submit: A button that can have actions done upon being interacted with. Submits automatically mark a question as answered without any extra do statements.
 	  - text: An input that accepts a string
 	  - button: A button that can have actions done on being interacted with
 	  - list: Select a value from a list

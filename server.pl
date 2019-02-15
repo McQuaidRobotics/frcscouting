@@ -142,7 +142,7 @@ sub mux_input {
 		    @in=split(/ /,$arg);undef %val;
 		    my $xx=0;while($config->{$x}->{'inputs'}->[$xx]){
 		      if($config->{$x}->{'inputs'}->[$xx]->{'type'} eq 'text' || $config->{$x}->{'inputs'}->[$xx]->{'type'} eq 'list'){
-		        my $in='';my $ii=shift(@in);while(@in && $ii ne "##val$xx##"){$in.=$ii.' ';$ii=shift(@in);}chop($in);
+		        my $in='';my $ii=shift(@in);while(@in && $ii ne "\$\$val$xx\$\$"){$in.=$ii.' ';$ii=shift(@in);}chop($in);
 			$val{"val$xx"}=$in;
 			if($config->{$x}->{'inputs'}->[$xx]->{'saveas'}){my $s=keyreplace($config->{$x}->{'inputs'}->[$xx]->{'saveas'},$x,$userq{$id});
 	  		  my ($key,$i)=split(/\./,$s);
@@ -150,7 +150,7 @@ sub mux_input {
 		          $u->execute($i,$key,$id,$in);
 			}
 		      }elsif($config->{$x}->{'inputs'}->[$xx]->{'type'} eq 'number'){
-		        my $in='';my $ii=shift(@in);while(@in && $ii ne "##val$xx##"){$in.=$ii.' ';$ii=shift(@in);}chop($in);
+		        my $in='';my $ii=shift(@in);while(@in && $ii ne "\$\$val$xx\$\$"){$in.=$ii.' ';$ii=shift(@in);}chop($in);
 			$val{"val$xx"}=$in;
 			if($config->{$x}->{'inputs'}->[$xx]->{'saveas'}){my $s=keyreplace($config->{$x}->{'inputs'}->[$xx]->{'saveas'},$x,$userq{$id});
 	  		  my ($key,$i)=split(/\./,$s);
@@ -166,7 +166,7 @@ sub mux_input {
 		        if($config->{$x}->{'inputs'}->[$xx]->{'do'}){
 		          my $xxx=0;while($config->{$x}->{'inputs'}->[$xx]->{'do'}->[$xxx]){
 			    my $a=keyreplace($config->{$x}->{'inputs'}->[$xx]->{'do'}->[$xxx],$x,$userq{$id});
-			    foreach my $v(keys %val){my $vv=$val{$v};$a=~s/##$v##/$vv/ig;}
+			    foreach my $v(keys %val){my $vv=$val{$v};$a=~s/\$\$$v\$\$/$vv/ig;}
 			    runaction($a);$xxx++;
 		 	  }
 		        }
@@ -351,7 +351,7 @@ sub questiondata{my $q=shift(@_);my $uid=shift(@_);my $m='';
 	}elsif($config->{$x}->{'inputs'}->[$xx]->{'type'} eq 'submit'){
 	  $m.="<input style=\"font-size:'+ht(10)+'px;".$config->{$x}->{'inputs'}->[$xx]->{'style'}."\" type=button ";
 	  $m.="value=\"".$config->{$x}->{'inputs'}->[$xx]->{'label'}."\" onClick=\"sendData(\\\'submit";
-	  while(@sub){my $v=shift(@sub);$m.=" \\\'+document.getElementById(\\\'$v\\\').value+\\\' ##$v##";}
+	  while(@sub){my $v=shift(@sub);$m.=" \\\'+document.getElementById(\\\'$v\\\').value+\\\' \$\$$v\$\$";}
 	  $m.="\\\');\">";
 	}
       $xx++;}
@@ -387,13 +387,13 @@ sub keyreplace{my $m=shift(@_);my $x=shift(@_);my $kkk=shift(@_);my $early=shift
   my ($kkk,@k)=split(/\./,$kkk);@k=split(/:/,$kkk);
   my $k=$config->{$x}->{'key'};my @kk=split(/:/,$k);if($ek){push(@kk,$ek);}
   while(@kk){my $a=shift(@k);my $b=shift(@kk);
-    $m=~s/##$b##/$a/ig;
+    $m=~s/\$\$$b\$\$/$a/ig;
   }
   if($early>0){return $m;}
   my $xx=0;while($config->{$x}->{'variables'}->[$xx]){
     my $b=$config->{$x}->{'variables'}->[$xx]->{'name'};
     my $a=getvar($x,$config->{$x}->{'variables'}->[$xx],$kkk);
-    $m=~s/##$b##/$a/ig;
+    $m=~s/\$\$$b\$\$/$a/ig;
   $xx++;}
   return $m;
 }

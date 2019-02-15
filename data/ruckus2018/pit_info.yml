@@ -9,22 +9,22 @@ expvalue: 2
 inputs:
   - 
     type: label
-    label: Please visit the pit for team ##team## and answer the following questions:<br>
+    label: Please visit the pit for team $$team$$ and answer the following questions:<br>
   - 
     type: list
     listdata: tactic
     label: <br>What is the primary strategy focus for the robot?
-    saveas: ##team##.strategyfocus
+    saveas: $$team$$.strategyfocus
   - 
     type: list
     listdata: autonomous
     label: <br>What kind of autonomous does the robot have?
-    saveas: ##team##.pitauto
+    saveas: $$team$$.pitauto
   - 
     type: list
     listdata: yesno
     label: <br>Can the robot climb?
-    saveas: ##team##.canclimb
+    saveas: $$team$$.canclimb
   - 
     type: text
     label: <br>Anything unusual or special to note about the robot?
@@ -35,4 +35,4 @@ inputs:
     type: submit
     label: Submit
     do:
-      - eval $x='##val4##';if($x){runaction("addtextdata ##team##.comments Pit Scout - $x");}
+      - eval $x='$$val4$$';if($x){runaction("addtextdata $$team$$.comments Pit Scout - $x");}

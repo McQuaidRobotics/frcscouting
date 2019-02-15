@@ -12,4 +12,4 @@ inputs:
     type: submit
     label: Submit
     do:
-      - addquestion ##val0##
+      - addquestion $$val0$$
