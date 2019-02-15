@@ -1,0 +1,40 @@
+---
+type: question
+id: redrobot1set2
+key: match
+role: matchscout
+priority: 3
+dataneeded: 1
+expvalue: 5
+variables:
+  -
+    name: team
+    source: ##match##.red1
+    type: string
+inputs:
+  -
+    type: label
+    label: You will be watching robot ##match##.red1 for match ##match##
+  - 
+    type: list
+    listdata: startlocation
+    label: <br>Where did ##team## start?
+    saveas: ##match##:##teamr1##.startlocation
+  -
+    type: tally
+    label: <br>How many hatches did ##team## score on the rocketship
+    saveas: ##match##:##teamr1##.rocketshipHatch
+  -
+    type: tally
+    label: <br>How many cargo did ##team## score on the rocketship
+    saveas: ##match##:##teamr1##.roketshipCargo
+  - 
+    type: list
+    listdata: yesno
+    label: <br>Did ##team##'s robot break
+    saveas: ##match##:##teamr1##.didbreak
+  -
+    type: submit
+    label: Submit
+    
+    

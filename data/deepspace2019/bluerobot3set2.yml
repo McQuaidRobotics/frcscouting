@@ -1,0 +1,40 @@
+---
+type: question
+id: bluerobot3set2
+key: match
+role: matchscout
+priority: 3
+dataneeded: 1
+expvalue: 5
+variables:
+  -
+    name: team
+    source: ##match##.blue3
+    type: string
+inputs:
+  -
+    type: label
+    label: You will be watching robot ##match##.blue3 for match ##match##
+  - 
+    type: list
+    listdata: startlocation
+    label: <br>Where did ##team## start?
+    saveas: ##match##:##teamb3##.startlocation
+  -
+    type: tally
+    label: <br>How many hatches did ##team## score on the rocketship
+    saveas: ##match##:##teamb3##.rocketshipHatch
+  -
+    type: tally
+    label: <br>How many cargo did ##team## score on the rocketship
+    saveas: ##match##:##teamb3##.roketshipCargo
+  - 
+    type: list
+    listdata: yesno
+    label: <br>Did ##team##'s robot break
+    saveas: ##match##:##teamb3##.didbreak
+  -
+    type: submit
+    label: Submit
+    
+    
