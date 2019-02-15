@@ -8,37 +8,37 @@ variables:
   - 
     name: teamname
     type: string
-    source: ##team##.teamname
+    source: $$team$$.teamname
   - 
     name: strategy
     type: string
-    source: ##team##.strategyfocus
+    source: $$team$$.strategyfocus
   - 
     name: scaleavg
     type: average
-    source: %:##team##.scalecubes
+    source: %:$$team$$.scalecubes
     filter: val>0
   - 
     name: vaultavg
     type: average
-    source: %:##team##.vaultcubes
+    source: %:$$team$$.vaultcubes
     filter: val>0
   - 
     name: ownswitchavg
     type: average
-    source: %:##team##.ownswitch
+    source: %:$$team$$.ownswitch
   - 
     name: opponentswitchavg
     type: average
-    source: %:##team##.opponentswitch
+    source: %:$$team$$.opponentswitch
   - 
     name: pitauto
     type: string
-    source: ##team##.pitauto
+    source: $$team$$.pitauto
   - 
     name: canclimb
     type: string
-    source: ##team##.canclimb
+    source: $$team$$.canclimb
   - 
     name: autotable
     type: table
@@ -50,8 +50,8 @@ variables:
         name: autocount
         title: Number of Matches
         type: stringcount
-        source: %:##team##.auto
-        filter: val='##autonomous##'
+        source: %:$$team$$.auto
+        filter: val='$$autonomous$$'
     order: autocount desc
     filter: autocount>0
   - 
@@ -65,26 +65,26 @@ variables:
         name: endcount
         title: Number of Matches
         type: stringcount
-        source: %:##team##.endgame
-        filter: val='##endgame##'
+        source: %:$$team$$.endgame
+        filter: val='$$endgame$$'
     order: endcount desc
     filter: endcount>0
   - 
     name: comments
     type: commentlist
-    source: ##team##.comments
+    source: $$team$$.comments
 output: >-
-  Team ##team##<br>
-  ##teamname##<br>
+  Team $$team$$<br>
+  $$teamname$$<br>
   <div style="font-size:50%;"><br>
-  Reported strategy - ##strategy##<br>
-  Average Vault Cubes - ##vaultavg##<br>
-  Average Switch Cubes - ##ownswitchavg## Own, ##opponentswitchavg## Opponent<br>
-  Average Scale Cubes - ##scaleavg##<br>
+  Reported strategy - $$strategy$$<br>
+  Average Vault Cubes - $$vaultavg$$<br>
+  Average Switch Cubes - $$ownswitchavg$$ Own, $$opponentswitchavg$$ Opponent<br>
+  Average Scale Cubes - $$scaleavg$$<br>
   <br>
-  Reported autonomous - ##pitauto##<br>
-  ##autotable##<br>
-  Reported can climb - ##canclimb##<br>
-  ##endtable##
+  Reported autonomous - $$pitauto$$<br>
+  $$autotable$$<br>
+  Reported can climb - $$canclimb$$<br>
+  $$endtable$$
   <br>
-  ##comments##
+  $$comments$$

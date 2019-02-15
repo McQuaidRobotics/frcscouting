@@ -9,30 +9,30 @@ expvalue: 5
 variables:
   -
     name: team
-    source: ##match##.red1
+    source: $$match$$.red1
     type: string
 inputs:
   -
     type: label
-    label: You will be watching robot ##match##.red1 for match ##match##
+    label: You will be watching robot $$match$$.red1 for match $$match$$
   - 
     type: list
     listdata: autonomous
-    label: <br>What did ##team## do during sandstorm
-    saveas: ##match##:##teamr1##.auto
+    label: <br>What did $$team$$ do during sandstorm
+    saveas: $$match$$:$$teamr1$$.auto
   -
     type: tally
-    label: <br>How many hatches did ##team## score on the crago ship
-    saveas: ##match##:##teamr1##.cargoShipHatch
+    label: <br>How many hatches did $$team$$ score on the crago ship
+    saveas: $$match$$:$$teamr1$$.cargoShipHatch
   -
     type: tally
-    label: <br>How many cargo did ##team## score on the crago ship
-    saveas: ##match##:##teamr1##.cargoShipCargo
+    label: <br>How many cargo did $$team$$ score on the crago ship
+    saveas: $$match$$:$$teamr1$$.cargoShipCargo
   - 
     type: list
     listdata: endgame
-    label: <br>Where did ##team## end
-    saveas: ##match##:##teamr1##.endgame
+    label: <br>Where did $$team$$ end
+    saveas: $$match$$:$$teamr1$$.endgame
   -
     type: submit
     label: Submit

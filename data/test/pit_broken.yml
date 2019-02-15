@@ -9,12 +9,12 @@ expvalue: 1
 variables:
   - 
     name: comment
-    source: ##team##.comments
+    source: $$team$$.comments
     type: string
 inputs:
   - 
     type: label
-    label: The robot for team ##team## was marked as not working on the field, visit their pit and see if they have it fixed or need any help.<br><br>##comment##<br><br>
+    label: The robot for team $$team$$ was marked as not working on the field, visit their pit and see if they have it fixed or need any help.<br><br>$$comment$$<br><br>
     style: font-size:'+ht(17)+'px;
   - 
     type: text
@@ -26,12 +26,12 @@ inputs:
     type: submit
     label: All Fixed
     do:
-      - addtextdata ##team##.comments Robot Repaired - ##val1##
+      - addtextdata $$team$$.comments Robot Repaired - $$val1$$
       - markdone
   - 
     type: button
     label: Check back later
     do:
-      - delay ##team##.pitbroken 20 minutes
-      - addquestion ##team##.pitbroken
+      - delay $$team$$.pitbroken 20 minutes
+      - addquestion $$team$$.pitbroken
       - markdone

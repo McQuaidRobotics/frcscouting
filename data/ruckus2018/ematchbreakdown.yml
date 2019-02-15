@@ -9,69 +9,69 @@ expvalue: 1
 variables:
   - 
     name: teamr1
-    source: ##match##.red1
+    source: $$match$$.red1
     type: string
   - 
     name: teamr2
-    source: ##match##.red2
+    source: $$match$$.red2
     type: string
   - 
     name: teamr3
-    source: ##match##.red3
+    source: $$match$$.red3
     type: string
   - 
     name: teamb1
-    source: ##match##.blue1
+    source: $$match$$.blue1
     type: string
   - 
     name: teamb2
-    source: ##match##.blue2
+    source: $$match$$.blue2
     type: string
   - 
     name: teamb3
-    source: ##match##.blue3
+    source: $$match$$.blue3
     type: string
 inputs:
   - 
     type: label
-    label: Did any robots break down during match ##match##?  Select any teams that had problems and then hit continue.<br>
+    label: Did any robots break down during match $$match$$?  Select any teams that had problems and then hit continue.<br>
     style: font-size:'+ht(20)+'px;
   - 
     type: button
-    label: ##teamr1##
+    label: $$teamr1$$
     style: color:#FF0000;
     do:
-      - addquestion ##teamr1##.ematchbroken
+      - addquestion $$teamr1$$.ematchbroken
   - 
     type: button
-    label: ##teamr2##
+    label: $$teamr2$$
     style: color:#FF0000;
     do:
-      - addquestion ##teamr2##.ematchbroken
+      - addquestion $$teamr2$$.ematchbroken
   - 
     type: button
-    label: ##teamr3##
+    label: $$teamr3$$
     style: color:#FF0000;
     do:
-      - addquestion ##teamr3##.ematchbroken
+      - addquestion $$teamr3$$.ematchbroken
   - 
     type: button
-    label: ##teamb1##
+    label: $$teamb1$$
     style: color:#0000FF;
     do:
-      - addquestion ##teamb1##.ematchbroken
+      - addquestion $$teamb1$$.ematchbroken
   - 
     type: button
-    label: ##teamb2##
+    label: $$teamb2$$
     style: color:#0000FF;
     do:
-      - addquestion ##teamb2##.ematchbroken
+      - addquestion $$teamb2$$.ematchbroken
   - 
     type: button
-    label: ##teamb3##
+    label: $$teamb3$$
     style: color:#0000FF;
     do:
-      - addquestion ##teamb3##.ematchbroken
+      - addquestion $$teamb3$$.ematchbroken
   - 
     type: label
     label: <br><br>

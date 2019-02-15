@@ -16,25 +16,25 @@ variables:
         name: totcnt
         title: Total Matches
         type: count
-        source: %:##team##.scalecubes
+        source: %:$$team$$.scalecubes
       - 
         name: totavg
         title: Overall Scale Cube Average
         type: average
-        source: %:##team##.scalecubes
+        source: %:$$team$$.scalecubes
       - 
         name: partcnt
         title: Scale Matches
         type: count
-        source: %:##team##.scalecubes
+        source: %:$$team$$.scalecubes
         filter: val>0
       - 
         name: partavg
         title: Scale Cube Average
         type: average
-        source: %:##team##.scalecubes
+        source: %:$$team$$.scalecubes
         filter: val>0
     order: partavg desc
 output: >-
   Top Scale Robots<br>
-  ##data##
+  $$data$$

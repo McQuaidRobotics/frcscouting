@@ -9,55 +9,55 @@ expvalue: 3
 variables:
   - 
     name: teamb1
-    source: ##match##.blue1
+    source: $$match$$.blue1
     type: string
   - 
     name: teamb2
-    source: ##match##.blue2
+    source: $$match$$.blue2
     type: string
   - 
     name: teamb3
-    source: ##match##.blue3
+    source: $$match$$.blue3
     type: string
 inputs:
   - 
     type: label
-    label: You will be watching the blue vault for match ##match##.  Please record as robots feed cubes into the exchange and as they are placed into the vault.  Do not decrease numbers for cubes fed back out of the exchange by the human player.
+    label: You will be watching the blue vault for match $$match$$.  Please record as robots feed cubes into the exchange and as they are placed into the vault.  Do not decrease numbers for cubes fed back out of the exchange by the human player.
     style: font-size:'+ht(20)+'px;color:#0000FF;
   - 
     type: tally
-    label: ##teamb1##
-    saveas: ##match##:##teamb1##.vaultcubes
+    label: $$teamb1$$
+    saveas: $$match$$:$$teamb1$$.vaultcubes
     style: color:#0000FF;position:absolute;top:25%;left:5%;width:40%;height:18%;
   - 
     type: tally
-    label: ##teamb2##
-    saveas: ##match##:##teamb2##.vaultcubes
+    label: $$teamb2$$
+    saveas: $$match$$:$$teamb2$$.vaultcubes
     style: color:#0000FF;position:absolute;top:45%;left:5%;width:40%;height:18%;
   - 
     type: tally
-    label: ##teamb3##
-    saveas: ##match##:##teamb3##.vaultcubes
+    label: $$teamb3$$
+    saveas: $$match$$:$$teamb3$$.vaultcubes
     style: color:#0000FF;position:absolute;top:65%;left:5%;width:40%;height:18%;
   - 
     type: tally
     label: Force
-    saveas: ##match##:blue.cubesforce
+    saveas: $$match$$:blue.cubesforce
     style: position:absolute;top:25%;left:55%;width:40%;height:18%;
   - 
     type: tally
     label: Levitate
-    saveas: ##match##:blue.cubeslevitate
+    saveas: $$match$$:blue.cubeslevitate
     style: position:absolute;top:45%;left:55%;width:40%;height:18%;
   - 
     type: tally
     label: Boost
-    saveas: ##match##:blue.cubesboost
+    saveas: $$match$$:blue.cubesboost
     style: position:absolute;top:65%;left:55%;width:40%;height:18%;
   - 
     type: submit
     label: Match Complete
     style: position:absolute;top:85%;left:25%;width:50%;height:12%;
     do:
-      - eval $db->do("update question set numleft=0 where id like '##match##.match%'");
+      - eval $db->do("update question set numleft=0 where id like '$$match$$.match%'");
       - markdone

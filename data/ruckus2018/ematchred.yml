@@ -9,38 +9,38 @@ expvalue: 2
 variables:
   - 
     name: teamr1
-    source: ##match##.red1
+    source: $$match$$.red1
     type: string
   - 
     name: teamr2
-    source: ##match##.red2
+    source: $$match$$.red2
     type: string
   - 
     name: teamr3
-    source: ##match##.red3
+    source: $$match$$.red3
     type: string
 inputs:
   - 
     type: label
-    label: Where did the robots of the red alliance finish after the endgame in match ##match##?
+    label: Where did the robots of the red alliance finish after the endgame in match $$match$$?
     style: font-size:'+ht(20)+'px;color:#FF0000;
   - 
     type: list
     listdata: endgame
-    label: <br>##teamr1##
-    saveas: ##match##:##teamr1##.endgame
+    label: <br>$$teamr1$$
+    saveas: $$match$$:$$teamr1$$.endgame
     style: color:#FF0000;
   - 
     type: list
     listdata: endgame
-    label: <br>##teamr2##
-    saveas: ##match##:##teamr2##.endgame
+    label: <br>$$teamr2$$
+    saveas: $$match$$:$$teamr2$$.endgame
     style: color:#FF0000;
   - 
     type: list
     listdata: endgame
-    label: <br>##teamr3##
-    saveas: ##match##:##teamr3##.endgame
+    label: <br>$$teamr3$$
+    saveas: $$match$$:$$teamr3$$.endgame
     style: color:#FF0000;
   - 
     type: submit

@@ -9,8 +9,8 @@ expvalue: 1
 inputs:
   - 
     type: text
-    label: What is the team name for team ##team##?<br>
-    saveas: ##team##.teamname
+    label: What is the team name for team $$team$$?<br>
+    saveas: $$team$$.teamname
   - 
     type: label
     label: <br>

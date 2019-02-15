@@ -17,6 +17,6 @@ inputs:
     type: submit
     label: Submit
     do:
-      - eval $x=1;while($x<=##val0##){runaction("addtextdata .match $x");$x++;}
+      - eval $x=1;while($x<=$$val0$$){runaction("addtextdata .match $x");$x++;}
       - eval scanq();$db->do("update question set priority=2 where id='1.matchteams'");
       - addquestion 1.matchstart
