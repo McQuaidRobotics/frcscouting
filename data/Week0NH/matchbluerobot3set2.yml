@@ -4,7 +4,7 @@ id: bluerobot3set2
 key: match
 role: matchscout
 priority: 3
-dataneeded: 1
+dataneeded: 0
 expvalue: 5
 variables:
   -
@@ -14,7 +14,7 @@ variables:
 inputs:
   -
     type: label
-    label: You will be watching robot $$match$$.blue3 for match $$match$$
+    label: You will be watching robot $$team$$ for match $$match$$
   - 
     type: list
     listdata: startlocation
