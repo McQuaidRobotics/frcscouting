@@ -14,12 +14,12 @@ inputs:
     type: button
     label: Continue
     do:
-      - addquestion $$match$$.matchautored
-      - addquestion $$match$$.matchautoblue
-      - addquestion $$match$$.matchscale
-      - addquestion $$match$$.matchswitchred
-      - addquestion $$match$$.matchswitchblue
-      - addquestion $$match$$.matchvaultred
+      - addquestion $$match$$.redrobot1
+      - addquestion $$match$$.redrobot2
+      - addquestion $$match$$.redrobot3
+      - addquestion $$match$$.bluerobot1
+      - addquestion $$match$$.bluerobot2
+      - addquestion $$match$$.bluerobot3
       - addquestion $$match$$.matchvaultblue
       - addquestion $$match$$.matchscale2
       - addquestion $$match$$.matchswitchred2

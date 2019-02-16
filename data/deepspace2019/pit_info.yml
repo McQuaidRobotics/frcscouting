@@ -5,7 +5,7 @@ key: team
 role: pitscout
 priority: 7
 dataneeded: 1
-expvalue: 2
+expvalue: 8
 inputs:
   - 
     type: label
@@ -14,18 +14,37 @@ inputs:
     type: list
     listdata: tactic
     label: <br>What is the primary strategy focus for the robot?
-    saveas: $$team$$.strategyfocus
+    saveas: $$team$$.primarystrategyfocus
+  - 
+    type: list
+    listdata: tactic
+    label: <br>What is the secondary strategy focus for the robot?
+    saveas: $$team$$.secondarystrategyfocus
+  - 
+    type: list
+    listdata: tactic
+    label: <br>What is the tertiary strategy focus for the robot?
+    saveas: $$team$$.tertiarystrategyfocus
   - 
     type: list
     listdata: autonomous
-    label: <br>What kind of autonomous does the robot have?
+    label: <br>What kind of autonomous does the robot have. Vision/Carmera or Autonounomous?
     saveas: $$team$$.pitauto
   - 
     type: list
     listdata: yesno
     label: <br>Can the robot climb?
     saveas: $$team$$.canclimb
-  - 
+  -
+    type: list
+    listdata: endgame 
+    label: <br>to what level can your robot climb?
+    saveas: $$team$$.climblevel
+  -  
+    type: tally
+    label: <br> How long did your team have to program your robot
+    saveas: $$team$$.programingtime
+  -
     type: text
     label: <br>Anything unusual or special to note about the robot?
   - 

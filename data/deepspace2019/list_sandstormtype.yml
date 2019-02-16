@@ -1,0 +1,6 @@
+---
+type: list
+id: sandstormtype
+populate:
+  - Vision/Camera
+  - Autonomous
