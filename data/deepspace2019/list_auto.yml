@@ -4,6 +4,6 @@ id: autonomous
 populate:
   - None
   - Move
-  - Move+Switch
-  - Move+Scale
-  - Multi-Cube
+  - Cargo
+  - Hatch
+  - Multi-Cargo or Hatch

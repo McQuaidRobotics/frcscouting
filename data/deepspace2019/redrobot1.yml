@@ -1,6 +1,6 @@
 ---
 type: question
-id: redrobot1set1
+id: redrobot1
 key: match
 role: matchscout
 priority: 2
@@ -21,6 +21,11 @@ inputs:
     label: <br>What did $$team$$ do during sandstorm
     saveas: $$match$$:$$teamr1$$.auto
   -
+    type: list
+    listdata: startlocation
+    label: <br>Where did $$team$$ start?
+    saveas: $$match$$:$$teamr1$$.startlocation
+  -
     type: tally
     label: <br>How many hatches did $$team$$ score on the crago ship
     saveas: $$match$$:$$teamr1$$.cargoShipHatch
@@ -29,10 +34,23 @@ inputs:
     label: <br>How many cargo did $$team$$ score on the crago ship
     saveas: $$match$$:$$teamr1$$.cargoShipCargo
   - 
+    type: tally
+    label: <br>How many hatches did $$team$$ score on the rocketship
+    saveas: $$match$$:$$teamr1$$.rocketshipHatch
+  -
+    type: tally
+    label: <br>How many cargo did $$team$$ score on the rocketship
+    saveas: $$match$$:$$teamr1$$.roketshipCargo
+  - 
     type: list
     listdata: endgame
     label: <br>Where did $$team$$ end
     saveas: $$match$$:$$teamr1$$.endgame
+  -
+    type: list
+    listdata: yesno
+    label: <br>Did $$team$$'s robot break
+    saveas: $$match$$:$$teamr1$$.didbreak
   -
     type: submit
     label: Submit

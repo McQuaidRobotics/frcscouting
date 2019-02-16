@@ -4,3 +4,4 @@ id: tactic
 populate:
   - Hatch
   - Cargo
+  - Climb

@@ -1,9 +1,9 @@
 ---
 type: question
-id: redrobot3set2
+id: redrobot3
 key: match
 role: matchscout
-priority: 3
+priority: 2
 dataneeded: 1
 expvalue: 5
 variables:
@@ -17,10 +17,23 @@ inputs:
     label: You will be watching robot $$match$$.red3 for match $$match$$
   - 
     type: list
+    listdata: autonomous
+    label: <br>What did $$team$$ do during sandstorm
+    saveas: $$match$$:$$teamr3$$.auto
+  -
+    type: list
     listdata: startlocation
     label: <br>Where did $$team$$ start?
     saveas: $$match$$:$$teamr3$$.startlocation
   -
+    type: tally
+    label: <br>How many hatches did $$team$$ score on the crago ship
+    saveas: $$match$$:$$teamr3$$.cargoShipHatch
+  -
+    type: tally
+    label: <br>How many cargo did $$team$$ score on the crago ship
+    saveas: $$match$$:$$teamr3$$.cargoShipCargo
+  - 
     type: tally
     label: <br>How many hatches did $$team$$ score on the rocketship
     saveas: $$match$$:$$teamr3$$.rocketshipHatch
@@ -29,6 +42,11 @@ inputs:
     label: <br>How many cargo did $$team$$ score on the rocketship
     saveas: $$match$$:$$teamr3$$.roketshipCargo
   - 
+    type: list
+    listdata: endgame
+    label: <br>Where did $$team$$ end
+    saveas: $$match$$:$$teamr3$$.endgame
+  -
     type: list
     listdata: yesno
     label: <br>Did $$team$$'s robot break
