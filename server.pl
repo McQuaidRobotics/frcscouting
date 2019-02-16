@@ -8,7 +8,7 @@ $name=shift(@ARGV);
 if($name eq ''){die("No name specified");}
 
 $port=3173;
-$base="greenishblue.info:$port";
+$base="13.92.88.88:$port";
 
 if(!-e "data/$name/data.db"){system("./initdb.pl $name");}
 use DBI;$db = DBI->connect("dbi:SQLite:dbname=data/$name/data.db","","",{RaiseError=>1},) or die $DBI::errstr;

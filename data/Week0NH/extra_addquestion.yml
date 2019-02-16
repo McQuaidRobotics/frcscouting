@@ -1,0 +1,15 @@
+---
+type: input
+id: extraq
+key: 
+reqlevel: 5
+title: Add Question
+inputs:
+  - 
+    type: text
+    label: Enter the ID of the question to add it to the queue manually<br>
+  - 
+    type: submit
+    label: Submit
+    do:
+      - addquestion $$val0$$

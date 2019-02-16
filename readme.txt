@@ -18,9 +18,9 @@ populate: For lists only, a list of data. Ex.
   - Vault
   - Defense
   - Endgame
-variables: A list of variables referenced in the file that are not already declared in the key. Referred to later as ##name##
+variables: A list of variables referenced in the file that are not already declared in the key. Referred to later as $$name$$
   - 
-    name: String name of the variable. Referenced as ##name##
+    name: String name of the variable. Referenced as $$name$$
     source: The source of the variable, in the form of key.id.
     type: enum: [string, average, table, commentlist, stringcount, count, sum, sql]
 	  - String: the newest value from the source
@@ -39,7 +39,7 @@ variables: A list of variables referenced in the file that are not already decla
 Ex. of variable:
   - 
     name: teamr1
-    source: ##match##.red1
+    source: $$match$$.red1
     type: string
 inputs: A list of interactable elements on a page. Inputs can have the following:
   -
@@ -56,10 +56,10 @@ inputs: A list of interactable elements on a page. Inputs can have the following
 	style: CSS styling to be put on the input
 	do: A series of commands that will be executed upon the input being interacted with
 	saveas: the name to save the value as. Can be referenced later in variables
-output: HTML output to the screen. Reference variables by using ##variable##. 
+output: HTML output to the screen. Reference variables by using $$variable$$. 
   Ex:
 output: >-
-  Team ##team##<br>
-  ##teamname##<br>
-  Average Cargo - ##cargoavg##<br>
-  ##comments##
+  Team $$team$$<br>
+  $$teamname$$<br>
+  Average Cargo - $$cargoavg$$<br>
+  $$comments$$

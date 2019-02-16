@@ -1,0 +1,31 @@
+---
+type: question
+id: matchstart
+key: match
+role: matchscout
+priority: 2
+dataneeded: 0
+expvalue: 1
+inputs:
+  - 
+    type: label
+    label: Please keep an eye on the field and click continue below when they are getting ready to start match $$match$$.<br><br>
+  - 
+    type: button
+    label: Continue
+    do:
+      - addquestion $$match$$.matchredrobot1set1
+      - addquestion $$match$$.matchredrobot1set2
+      - addquestion $$match$$.matchredrobot2set1
+      - addquestion $$match$$.matchredrobot2set2
+      - addquestion $$match$$.matchredrobot3set1
+      - addquestion $$match$$.matchredrobot3set2
+      - addquestion $$match$$.matchbluerobot1set1
+      - addquestion $$match$$.matchbluerobot1set2
+      - addquestion $$match$$.matchbluerobot2set1
+      - addquestion $$match$$.matchbluerobot2set2
+      - addquestion $$match$$.matchbluerobot3set1
+      - addquestion $$match$$.matchbluerobot3set2
+      - eval $x=$$match$$;$x++;$db->do("update question set priority=1 where id='$x.matchteams'");
+      - eval $x=$$match$$;$x--;$db->do("update question set numleft=0 where id like '$x.ematch%'");
+      - markdone
