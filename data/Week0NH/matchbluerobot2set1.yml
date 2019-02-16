@@ -3,9 +3,9 @@ type: question
 id: matchbluerobot2set1
 key: match
 role: matchscout
-priority: 2
+priority: 4
 dataneeded: 0
-expvalue: 5
+expvalue: 3
 variables:
   -
     name: team
@@ -21,13 +21,21 @@ inputs:
     label: <br>What did $$team$$ do during sandstorm
     saveas: $$match$$:$$teamb2$$.auto
   -
-    type: tally
-    label: <br>How many hatches did $$team$$ score on the crago ship
-    saveas: $$match$$:$$teamb2$$.cargoShipHatch
+    type: label
+    label: <br>How many hatches did $$team$$ score on the cargo ship
   -
     type: tally
-    label: <br>How many cargo did $$team$$ score on the crago ship
+    label: $$team$$
+    saveas: $$match$$:$$teamb2$$.cargoShipHatch
+    style: color:#FF0000
+  -
+    type: label
+    label: <br>How many cargo did $$team$$ score on the cargo ship
+  -
+    type: tally
+    label: $$team$$
     saveas: $$match$$:$$teamb2$$.cargoShipCargo
+    style: color:#FF0000
   - 
     type: list
     listdata: endgame

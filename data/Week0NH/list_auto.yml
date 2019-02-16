@@ -2,8 +2,6 @@
 type: list
 id: autonomous
 populate:
-  - None
-  - Move
-  - Move+Switch
-  - Move+Scale
-  - Multi-Cube
+  - No movement
+  - Hab Level 1
+  - Hab Level 2

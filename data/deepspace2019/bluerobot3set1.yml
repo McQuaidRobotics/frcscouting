@@ -22,11 +22,11 @@ inputs:
     saveas: $$match$$:$$teamb3$$.auto
   -
     type: tally
-    label: <br>How many hatches did $$team$$ score on the crago ship
+    label: <br>How many hatches did $$team$$ score on the cargo ship
     saveas: $$match$$:$$teamb3$$.cargoShipHatch
   -
     type: tally
-    label: <br>How many cargo did $$team$$ score on the crago ship
+    label: <br>How many cargo did $$team$$ score on the cargo ship
     saveas: $$match$$:$$teamb3$$.cargoShipCargo
   - 
     type: list

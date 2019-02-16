@@ -3,9 +3,9 @@ type: question
 id: matchbluerobot2set2
 key: match
 role: matchscout
-priority: 3
+priority: 5
 dataneeded: 0
-expvalue: 5
+expvalue: 2
 variables:
   -
     name: team

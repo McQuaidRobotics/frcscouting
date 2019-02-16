@@ -2,7 +2,7 @@
 type: list
 id: endgame
 populate:
-  - Nothing
+  - Not In Hab
   - Hab Level 1
   - Hab Level 2
   - Hab Level 3

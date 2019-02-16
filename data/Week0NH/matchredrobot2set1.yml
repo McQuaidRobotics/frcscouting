@@ -3,9 +3,9 @@ type: question
 id: matchredrobot2set1
 key: match
 role: matchscout
-priority: 2
+priority: 4
 dataneeded: 0
-expvalue: 5
+expvalue: 2
 variables:
   -
     name: team
@@ -22,11 +22,11 @@ inputs:
     saveas: $$match$$:$$teamr2$$.auto
   -
     type: tally
-    label: <br>How many hatches did $$team$$ score on the crago ship
+    label: <br>How many hatches did $$team$$ score on the cargo ship
     saveas: $$match$$:$$teamr2$$.cargoShipHatch
   -
     type: tally
-    label: <br>How many cargo did $$team$$ score on the crago ship
+    label: <br>How many cargo did $$team$$ score on the cargo ship
     saveas: $$match$$:$$teamr2$$.cargoShipCargo
   - 
     type: list
