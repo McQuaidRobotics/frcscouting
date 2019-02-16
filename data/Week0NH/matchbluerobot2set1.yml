@@ -1,0 +1,40 @@
+---
+type: question
+id: bluerobot2set1
+key: match
+role: matchscout
+priority: 2
+dataneeded: 1
+expvalue: 5
+variables:
+  -
+    name: team
+    source: $$match$$.blue2
+    type: string
+inputs:
+  -
+    type: label
+    label: You will be watching robot $$match$$.blue2 for match $$match$$
+  - 
+    type: list
+    listdata: autonomous
+    label: <br>What did $$team$$ do during sandstorm
+    saveas: $$match$$:$$teamb2$$.auto
+  -
+    type: tally
+    label: <br>How many hatches did $$team$$ score on the crago ship
+    saveas: $$match$$:$$teamb2$$.cargoShipHatch
+  -
+    type: tally
+    label: <br>How many cargo did $$team$$ score on the crago ship
+    saveas: $$match$$:$$teamb2$$.cargoShipCargo
+  - 
+    type: list
+    listdata: endgame
+    label: <br>Where did $$team$$ end
+    saveas: $$match$$:$$teamb2$$.endgame
+  -
+    type: submit
+    label: Submit
+    
+    

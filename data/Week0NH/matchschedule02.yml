@@ -1,0 +1,22 @@
+---
+type: question
+id: nummatches
+key: 
+role: dataentry
+priority: 5
+dataneeded: 0
+expvalue: 1
+inputs:
+  - 
+    type: number
+    label: How many matches total are on the match schedule?<br>
+  - 
+    type: label
+    label: <br>
+  - 
+    type: submit
+    label: Submit
+    do:
+      - eval $x=1;while($x<=$$val0$$){runaction("addtextdata .match $x");$x++;}
+      - eval scanq();$db->do("update question set priority=2 where id='1.matchteams'");
+      - addquestion 1.matchstart

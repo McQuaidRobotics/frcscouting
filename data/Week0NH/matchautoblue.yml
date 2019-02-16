@@ -1,0 +1,47 @@
+---
+type: question
+id: matchautoblue
+key: match
+role: matchscout
+priority: 3
+dataneeded: 0
+expvalue: 2
+variables:
+  - 
+    name: teamb1
+    source: $$match$$.blue1
+    type: string
+  - 
+    name: teamb2
+    source: $$match$$.blue2
+    type: string
+  - 
+    name: teamb3
+    source: $$match$$.blue3
+    type: string
+inputs:
+  - 
+    type: label
+    label: Watching the blue alliance during autonomous in match $$match$$, what did each robot do?
+    style: font-size:'+ht(20)+'px;color:#0000FF;
+  - 
+    type: list
+    listdata: autonomous
+    label: <br>$$teamb1$$
+    saveas: $$match$$:$$teamb1$$.auto
+    style: color:#0000FF;
+  - 
+    type: list
+    listdata: autonomous
+    label: <br>$$teamb2$$
+    saveas: $$match$$:$$teamb2$$.auto
+    style: color:#0000FF;
+  - 
+    type: list
+    listdata: autonomous
+    label: <br>$$teamb3$$
+    saveas: $$match$$:$$teamb3$$.auto
+    style: color:#0000FF;
+  - 
+    type: submit
+    label: Submit
