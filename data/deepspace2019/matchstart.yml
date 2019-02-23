@@ -14,7 +14,7 @@ inputs:
     type: button
     label: Continue
     do:
-       - addquestion $$match$$.bluerobot1sand
+      - addquestion $$match$$.bluerobot1sand
 #      - addquestion $$match$$.redrobot1
 #      - addquestion $$match$$.redrobot2
 #      - addquestion $$match$$.redrobot3
