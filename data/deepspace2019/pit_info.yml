@@ -7,7 +7,7 @@ priority: 7
 dataneeded: 1
 expvalue: 8
 inputs:
-  - 
+  -
     type: label
     label: Please visit the pit for team $$team$$ and answer the following questions:<br>
   - 
@@ -47,7 +47,7 @@ inputs:
     saveas: $$team$$.climblevel
   -  
     type: number
-    label: <br> How many hours did your team have to program your robot
+    label: <br>How many hours did your team have to program your robot?
     saveas: $$team$$.programingtime
   -
     type: text
