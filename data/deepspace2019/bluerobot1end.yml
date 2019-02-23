@@ -17,11 +17,12 @@ inputs:
     label: You will be watching robot $$team$$ for match $$match$$
   -
     type: label
-    label: <B>ENDGAME<B>
+    label: <B>ENDGAME</B>
+    style: text-align:center
   - 
     type: list
     listdata: endgame
-    label: <br>Where did $$team$$ end
+    label: <br>Where did $$team$$ end<br>
     saveas: $$match$$:$$teamb1$$.endgame
   - 
     type: list

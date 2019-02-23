@@ -15,19 +15,24 @@ inputs:
   -
     type: label
     label: You will be watching robot $$team$$ for match $$match$$
+    style: color:#0000FF
   -
     type: label
-    label: <B>SANDSTORM<B>
+    label: <B>SANDSTORM</B>
+    style: text-align:center
   -
     type: list
     listdata: startlocation
-    label: <br>Where did $$team$$ start?
+    label: Where did $$team$$ start?<br>
     saveas: $$match$$:$$teamb1$$.startlocation
   - 
     type: list
     listdata: autonomous
-    label: <br>What did $$team$$ do during sandstorm
+    label: <br>What did $$team$$ do during sandstorm<br>
     saveas: $$match$$:$$teamb1$$.auto
+  - 
+    type: label
+    label: <br>
   -
     type: submit
     label: Submit
