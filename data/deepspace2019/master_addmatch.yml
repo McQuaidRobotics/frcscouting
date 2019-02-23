@@ -1,0 +1,20 @@
+---
+type: question
+id: addmatch
+role: scoutmaster
+priority: 5
+dataneeded: 1
+expvalue: 2
+inputs:
+  - 
+    type: text
+    label: What match would you like to add?
+  - 
+    type: label
+    label: <br>
+  - 
+    type: button
+    label: Submit
+    do: 
+      - eval runaction("addtextdata .match $$val0$$");
+      - eval $db->do("update question set dataneeded=1 where id='$$val0$$.matchadd'");

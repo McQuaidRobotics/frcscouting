@@ -28,7 +28,7 @@ inputs:
   - 
     type: list
     listdata: autonomous
-    label: <br>What did $$team$$ do during sandstorm<br>
+    label: <br>What did $$team$$ do during sandstorm?<br>
     saveas: $$match$$:$$teamb1$$.auto
   - 
     type: label
