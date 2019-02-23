@@ -38,11 +38,16 @@ inputs:
   -
     type: list
     listdata: endgame 
-    label: <br>to what level can your robot climb?
+    label: <br>To what level can your robot climb?
+    saveas: $$team$$.climblevel
+  -
+    type: list
+    listdata: yesno 
+    label: <br>Does your robot support other robots while climbing?
     saveas: $$team$$.climblevel
   -  
-    type: tally
-    label: <br> How long did your team have to program your robot
+    type: number
+    label: <br> How many hours did your team have to program your robot
     saveas: $$team$$.programingtime
   -
     type: text

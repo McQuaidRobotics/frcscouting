@@ -6,4 +6,6 @@ populate:
   - Move
   - Cargo
   - Hatch
-  - Multi-Cargo or Hatch
+  - Multi-Hatch
+  - Multi-Cargo
+  - Cargo and Hatch
