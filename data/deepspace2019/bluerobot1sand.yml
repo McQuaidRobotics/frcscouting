@@ -4,7 +4,7 @@ id: bluerobot1sand
 key: match
 role: matchscout
 priority: 7
-dataneeded: 1
+dataneeded: 0
 expvalue: 3
 variables:
   -
@@ -16,6 +16,9 @@ inputs:
     type: label
     label: You will be watching robot $$team$$ for match $$match$$
   -
+    type: label
+    label: <B>SANDSTORM<B>
+  -
     type: list
     listdata: startlocation
     label: <br>Where did $$team$$ start?
@@ -26,42 +29,7 @@ inputs:
     label: <br>What did $$team$$ do during sandstorm
     saveas: $$match$$:$$teamb1$$.auto
   -
-    type: label
-    label: <br>How many hatches did $$team$$ score on the cargo ship
-  -
-    type: tally
-    label: $$team$$
-    saveas: $$match$$:$$teamb1$$.cargoShipHatch
-    style: color:#FF0000
-  -
-    type: label
-    label: <br>How many cargo did $$team$$ score on the cargo ship
-  -
-    type: tally
-    label: $$team$$
-    saveas: $$match$$:$$teamb1$$.cargoShipCargo
-    style: color:#FF0000
-  -
-    type: label
-    label: <br>How many hatches did $$team$$ score in the rocket
-  -
-    type: tally
-    label: $$team$$
-    saveas: $$match$$:$$teamb1$$.rocketHatch
-    style: color:#FF0000
-  -
-    type: label
-    label: <br>How many cargo did $$team$$ score in the rocket
-  -
-    type: tally
-    label: $$team$$
-    saveas: $$match$$:$$teamb1$$.rocketCargo
-    style: color:#FF0000
-  - 
-    type: list
-    listdata: endgame
-    label: <br>Where did $$team$$ end
-    saveas: $$match$$:$$teamb1$$.endgame
-  -
     type: submit
-    label: Submit    
+    label: Submit
+    do: 
+      - addquestion $$match$$.bluerobot1tele

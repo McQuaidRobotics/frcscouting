@@ -4,15 +4,15 @@ id: redrobot2
 key: match
 role: matchscout
 priority: 2
-dataneeded: 1
+dataneeded: 0
 expvalue: 5
 variables:
-  -
+  - 
     name: team
     source: $$match$$.red2
     type: string
 inputs:
-  -
+  - 
     type: label
     label: You will be watching robot $$match$$.red2 for match $$match$$
   - 
@@ -20,16 +20,16 @@ inputs:
     listdata: autonomous
     label: <br>What did $$team$$ do during sandstorm
     saveas: $$match$$:$$teamr2$$.auto
-  -
+  - 
     type: list
     listdata: startlocation
     label: <br>Where did $$team$$ start?
     saveas: $$match$$:$$teamr2$$.startlocation
-  -
+  - 
     type: tally
     label: <br>How many hatches did $$team$$ score on the cargo ship
     saveas: $$match$$:$$teamr2$$.cargoShipHatch
-  -
+  - 
     type: tally
     label: <br>How many cargo did $$team$$ score on the cargo ship
     saveas: $$match$$:$$teamr2$$.cargoShipCargo
@@ -37,22 +37,20 @@ inputs:
     type: tally
     label: <br>How many hatches did $$team$$ score on the rocketship
     saveas: $$match$$:$$teamr2$$.rocketshipHatch
-  -
+  - 
     type: tally
     label: <br>How many cargo did $$team$$ score on the rocketship
     saveas: $$match$$:$$teamr2$$.roketshipCargo
-  -   
+  - 
     type: list
     listdata: endgame
     label: <br>Where did $$team$$ end
     saveas: $$match$$:$$teamr2$$.endgame
-  -
+  - 
     type: list
     listdata: yesno
     label: <br>Did $$team$$'s robot break
     saveas: $$match$$:$$teamr2$$.didbreak
-  -
+  - 
     type: submit
     label: Submit
-    
-    

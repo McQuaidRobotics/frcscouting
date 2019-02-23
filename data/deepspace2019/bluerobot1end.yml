@@ -1,0 +1,35 @@
+---
+type: question
+id: bluerobot1end
+key: match
+role: matchscout
+priority: 5
+dataneeded: 0
+expvalue: 3
+variables:
+  - 
+    name: team
+    source: $$match$$.blue1
+    type: string
+inputs:
+  - 
+    type: label
+    label: You will be watching robot $$team$$ for match $$match$$
+  -
+    type: label
+    label: <B>ENDGAME<B>
+  - 
+    type: list
+    listdata: endgame
+    label: <br>Where did $$team$$ end
+    saveas: $$match$$:$$teamb1$$.endgame
+  - 
+    type: list
+    listdata: climbhow
+    label: <br>How did they climb?
+    saveas: $$match$$:$$teamb1$$.climbhow
+  - 
+    type: submit
+    label: Submit
+    do: 
+      - eval $db->do("update question set numleft=0 where id like '$$match$$.match%'");

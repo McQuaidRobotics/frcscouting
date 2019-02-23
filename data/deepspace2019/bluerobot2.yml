@@ -4,7 +4,7 @@ id: bluerobot2
 key: match
 role: matchscout
 priority: 2
-dataneeded: 1
+dataneeded: 0
 expvalue: 5
 variables:
   -
