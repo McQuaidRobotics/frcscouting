@@ -7,14 +7,15 @@ dataneeded: 1
 expvalue: 2
 inputs:
   - 
-    type: text
+    type: number
     label: What match would you like to add?
   - 
     type: label
     label: <br>
   - 
-    type: button
+    type: submit
     label: Submit
-    do: 
+    do:
+      - eval runaction("addquestion .addmatch"); 
       - eval runaction("addtextdata .match $$val0$$");
-      - eval $db->do("update question set dataneeded=1 where id='$$val0$$.matchadd'");
+      - eval runaction("addquestion $$val0$$.matchteams");
