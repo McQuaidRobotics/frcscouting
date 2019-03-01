@@ -1,0 +1,17 @@
+---
+type: input
+id: extraq
+role: scoutmaster
+key: 
+reqlevel: 5
+title: Add Match
+inputs:
+  - 
+    type: number
+    label: Enter the number of the match to add it to the queue manually<br>
+  - 
+    type: submit
+    label: Submit
+    do:
+      - addtextdata .match $$val0$$
+      - addquestion $$val0$$.matchteams

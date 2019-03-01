@@ -16,6 +16,7 @@ inputs:
     type: submit
     label: Submit
     do:
+      - markdone
       - eval runaction("addquestion .addmatch"); 
       - eval runaction("addtextdata .match $$val0$$");
       - eval runaction("addquestion $$val0$$.matchteams");
