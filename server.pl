@@ -248,7 +248,7 @@ sub userupdate{my $mux=shift(@_);my $id=shift(@_);my $m='';my $doq=0;
     if($userq{$id} eq ''){$m.="Please wait...";}else{$m.=questiondata($userq{$id},$id);}
   }elsif($state{$id} eq 'view'){$m.="<ul>";
     foreach my $x(keys %report){
-      if($l>=$reportlvl{$x}){
+      if($l>=$reportlvl{$x} && ($reportrole{$x} eq $role{$id} || $reportrole{$x} eq "")){
         $m.="<li>".$report{$x}." ";
 	if($reportkey{$x} ne ''){my $v;
 	  $m.="<select style=\"font-size:'+ht(15)+'px;\" id=key$x>";
@@ -265,7 +265,7 @@ sub userupdate{my $mux=shift(@_);my $id=shift(@_);my $m='';my $doq=0;
     if($userq{$id} eq ''){
       $m.="<ul>";
       foreach my $x(keys %inx){
-        if($l>=$inxlvl{$x}){
+        if($l>=$inxlvl{$x} && ($inxrole{$x} eq $role{$id} || $inxrole{$x} eq "")){
           $m.="<li>".$inx{$x}." ";
 	  if($inxkey{$x} ne ''){my $v;
 	    $m.="<select style=\"font-size:'+ht(15)+'px;\" id=key$x>";
@@ -526,10 +526,12 @@ sub scanq{my $ch=0;my $id;
       $report{$config->{$x}->{'id'}}=$config->{$x}->{'title'};
       $reportkey{$config->{$x}->{'id'}}=$config->{$x}->{'key'};
       $reportlvl{$config->{$x}->{'id'}}=$config->{$x}->{'reqlevel'};
+	  $reportrole{$config->{$x}->{'id'}}=$config->{$x}->{'role'};
     }if($config->{$x}->{'type'} eq 'input'){
       $inx{$config->{$x}->{'id'}}=$config->{$x}->{'title'};
       $inxkey{$config->{$x}->{'id'}}=$config->{$x}->{'key'};
       $inxlvl{$config->{$x}->{'id'}}=$config->{$x}->{'reqlevel'};
+	  $inxrole{$config->{$x}->{'id'}}=$config->{$x}->{'role'};
     }
   }
   if($ch>0){scanq();}else{undef @questions;undef @roles;

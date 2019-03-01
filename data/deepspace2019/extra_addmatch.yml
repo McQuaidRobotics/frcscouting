@@ -16,3 +16,4 @@ inputs:
       - addtextdata .match $$val0$$
       - eval scanq();
       - addquestion $$val0$$.mastermatchteams
+      - eval $db->do("update question set numleft=0 where id='$$match$$.matchteams'");
