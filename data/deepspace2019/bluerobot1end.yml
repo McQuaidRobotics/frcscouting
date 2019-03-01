@@ -23,12 +23,12 @@ inputs:
     type: list
     listdata: endgame
     label: <br>Where did $$team$$ end<br>
-    saveas: $$match$$:$$teamb1$$.endgame
+    saveas: $$match$$:$$team$$.endgame
   - 
     type: list
     listdata: climbhow
     label: <br>How did they climb?
-    saveas: $$match$$:$$teamb1$$.climbhow
+    saveas: $$match$$:$$team$$.climbhow
   - 
     type: submit
     label: Submit

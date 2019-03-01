@@ -29,4 +29,5 @@ inputs:
 #      - addquestion $$match$$.matchvaultblue2
       - eval $x=$$match$$;$x++;$db->do("update question set priority=1 where id='$x.matchteams'");
       - eval $x=$$match$$;$x--;$db->do("update question set numleft=0 where id like '$x.ematch%'");
+      - eval $x=localtime();runaction("addtextdata $$match$$.timestarted $x");
       - markdone

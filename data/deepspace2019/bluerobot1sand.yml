@@ -24,12 +24,12 @@ inputs:
     type: list
     listdata: startlocation
     label: Where did $$team$$ start?<br>
-    saveas: $$match$$:$$teamb1$$.startlocation
+    saveas: $$match$$:$$team$$.startlocation
   - 
     type: list
     listdata: autonomous
     label: <br>What did $$team$$ do during sandstorm?<br>
-    saveas: $$match$$:$$teamb1$$.auto
+    saveas: $$match$$:$$team$$.auto
   - 
     type: label
     label: <br>
