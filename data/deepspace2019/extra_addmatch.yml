@@ -14,4 +14,4 @@ inputs:
     label: Submit
     do:
       - addtextdata .match $$val0$$
-      - addquestion $$val0$$.matchteams
+      - addquestion $$val0$$.mastermatchteams

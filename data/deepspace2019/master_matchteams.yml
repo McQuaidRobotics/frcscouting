@@ -1,6 +1,6 @@
 ---
 type: question
-id: matchteams
+id: mastermatchteams
 key: match
 role: scoutmaster
 priority: 3
@@ -52,3 +52,5 @@ inputs:
   - 
     type: submit
     label: Submit
+    do: 
+      - addquestion $$match$$.matchstart
