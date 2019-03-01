@@ -14,19 +14,12 @@ inputs:
     type: button
     label: Continue
     do:
+      - addquestion $$match$$.redrobot1sand
+      - addquestion $$match$$.redrobot2sand
+      - addquestion $$match$$.redrobot3sand
       - addquestion $$match$$.bluerobot1sand
-#      - addquestion $$match$$.redrobot1
-#      - addquestion $$match$$.redrobot2
-#      - addquestion $$match$$.redrobot3
-#      - addquestion $$match$$.bluerobot1
-#      - addquestion $$match$$.bluerobot2
-#      - addquestion $$match$$.bluerobot3
-#      - addquestion $$match$$.matchvaultblue
-#      - addquestion $$match$$.matchscale2
-#      - addquestion $$match$$.matchswitchred2
-#      - addquestion $$match$$.matchswitchblue2
-#      - addquestion $$match$$.matchvaultred2
-#      - addquestion $$match$$.matchvaultblue2
+      - addquestion $$match$$.bluerobot2sand
+      - addquestion $$match$$.bluerobot3sand
       - eval $x=$$match$$;$x++;$db->do("update question set priority=1 where id='$x.matchteams'");
       - eval $x=$$match$$;$x--;$db->do("update question set numleft=0 where id like '$x.ematch%'");
       - eval $x=localtime();runaction("addtextdata $$match$$.timestarted $x");
