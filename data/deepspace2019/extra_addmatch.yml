@@ -14,4 +14,5 @@ inputs:
     label: Submit
     do:
       - addtextdata .match $$val0$$
+      - eval scanq();
       - addquestion $$val0$$.mastermatchteams

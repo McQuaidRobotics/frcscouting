@@ -54,3 +54,4 @@ inputs:
     label: Submit
     do: 
       - addquestion $$match$$.matchstart
+      - eval $db->do("update question set numleft=0 where id='$$match$$.matchteams'");
