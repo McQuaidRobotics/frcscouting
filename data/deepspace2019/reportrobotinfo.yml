@@ -12,25 +12,27 @@ variables:
   - 
     name: strategy
     type: string
-    source: $$team$$.strategyfocus
+    source: $$team$$.primarystrategyfocus
   - 
-    name: scaleavg
+    name: cscargoavg
     type: average
-    source: %:$$team$$.scalecubes
+    source: %:$$team$$.cargoShipCargo
     filter: val>0
   - 
-    name: vaultavg
+    name: rocketcargoavg
     type: average
-    source: %:$$team$$.vaultcubes
+    source: %:$$team$$.rocketCargo
     filter: val>0
   - 
-    name: ownswitchavg
+    name: cshatchavg
     type: average
-    source: %:$$team$$.ownswitch
+    source: %:$$team$$.cargoShipHatch
+    filter: val>0
   - 
-    name: opponentswitchavg
+    name: rockethatchavg
     type: average
-    source: %:$$team$$.opponentswitch
+    source: %:$$team$$.rocketHatch
+    filter: val>0
   - 
     name: pitauto
     type: string
@@ -78,9 +80,10 @@ output: >-
   $$teamname$$<br>
   <div style="font-size:50%;"><br>
   Reported strategy - $$strategy$$<br>
-  Average Vault Cubes - $$vaultavg$$<br>
-  Average Switch Cubes - $$ownswitchavg$$ Own, $$opponentswitchavg$$ Opponent<br>
-  Average Scale Cubes - $$scaleavg$$<br>
+  Average Hatch - Cargo Ship - $$cshatchavg$$<br>
+  Average Hatch - Rocket $$rockethatchavg$$<br>
+  Average Cargo - Cargo Ship - $$cscargoavg$$<br>
+  Average Cargo - Rocket - $$rocketcargoavg$$<br>
   <br>
   Reported autonomous - $$pitauto$$<br>
   $$autotable$$<br>

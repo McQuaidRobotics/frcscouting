@@ -1,0 +1,19 @@
+---
+type: input
+id: extramatch
+role: scoutmaster
+key: 
+reqlevel: 5
+title: Add Match
+inputs:
+  - 
+    type: text
+    label: Enter the number of the match to add it to the queue manually<br>
+  - 
+    type: submit
+    label: Submit
+    do:
+      - addtextdata .match $$val0$$
+      - eval scanq();
+      - addquestion $$val0$$.mastermatchteams
+      - eval $db->do("update question set numleft=0 where id='$$val0$$.matchteams'");

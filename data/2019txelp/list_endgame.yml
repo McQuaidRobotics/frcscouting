@@ -1,7 +1,8 @@
 ---
 type: list
-id: startlocation
+id: endgame
 populate:
+  - Nothing
   - Hab Level 1
   - Hab Level 2
-  - Not on Field
+  - Hab Level 3
