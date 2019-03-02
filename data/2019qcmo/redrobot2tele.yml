@@ -1,0 +1,55 @@
+---
+type: question
+id: redrobot2tele
+key: match
+role: matchscout
+priority: 6
+dataneeded: 0
+expvalue: 3
+variables:
+  - 
+    name: team
+    source: $$match$$.red2
+    type: string
+inputs:
+  - 
+    type: label
+    label: You will be watching robot $$team$$ for match $$match$$
+  -
+    type: label
+    label: <B>TELEOP</B>
+    style: text-align:center
+  - 
+    type: label
+    label: How many hatches did $$team$$ score?
+    style: text-align:center
+  - 
+    type: tally
+    label: Cargo Ship
+    saveas: $$match$$:$$team$$.cargoShipHatch
+    style: color:#FF0000;position:width:100%
+  - 
+    type: tally
+    label: Rocket
+    saveas: $$match$$:$$team$$.rocketHatch
+    style: color:#FF0000;position:width:100%
+  - 
+    type: label
+    label: <br>How many cargo did $$team$$ score?
+    style: text-align:center
+  - 
+    type: tally
+    label: Cargo Ship
+    saveas: $$match$$:$$team$$.cargoShipCargo
+    style: color:#FF0000;position:width:100%
+  - 
+    type: tally
+    label: Rocket
+    saveas: $$match$$:$$team$$.rocketCargo
+    style: color:#FF0000;position:width:100%
+  - 
+    type: submit
+    label: Submit
+    style: text-align:center
+    do: 
+      - addquestion $$match$$.redrobot2end

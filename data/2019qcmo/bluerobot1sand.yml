@@ -1,0 +1,40 @@
+---
+type: question
+id: bluerobot1sand
+key: match
+role: matchscout
+priority: 7
+dataneeded: 0
+expvalue: 3
+variables:
+  -
+    name: team
+    source: $$match$$.blue1
+    type: string
+inputs:
+  -
+    type: label
+    label: You will be watching robot $$team$$ for match $$match$$
+    style: color:#0000FF
+  -
+    type: label
+    label: <B>SANDSTORM</B>
+    style: text-align:center
+  -
+    type: list
+    listdata: startlocation
+    label: Where did $$team$$ start?<br>
+    saveas: $$match$$:$$team$$.startlocation
+  - 
+    type: list
+    listdata: autonomous
+    label: <br>What did $$team$$ do during sandstorm?<br>
+    saveas: $$match$$:$$team$$.auto
+  - 
+    type: label
+    label: <br>
+  -
+    type: submit
+    label: Submit
+    do: 
+      - addquestion $$match$$.bluerobot1tele
