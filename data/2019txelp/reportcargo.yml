@@ -1,9 +1,9 @@
 ---
 type: report
-id: reportswitch
+id: reportcargo
 key: 
 reqlevel: 1
-title: Top Switch Robots
+title: Top Cargo Robots
 variables:
   - 
     name: data
@@ -16,24 +16,24 @@ variables:
         name: totcnt
         title: Total Matches
         type: count
-        source: %:$$team$$.ownswitch
+        source: %:$$team$$.cargoShipCargo
       - 
-        name: totown
-        title: Cubes In Own Switch
+        name: totcs
+        title: Cargo Ship
         type: sum
-        source: %:$$team$$.ownswitch
+        source: %:$$team$$.cargoShipCargo
       - 
-        name: totopp
-        title: Cubes In Opponent Switch
+        name: totroc
+        title: Rocket
         type: sum
-        source: %:$$team$$.opponentswitch
+        source: %:$$team$$.rocketCargo
       - 
         name: switchavg
-        title: Switch Cube Average
+        title: Cargo Average
         type: sql
-        source: (totown+totopp+0.0)/totcnt
+        source: (totcs+totroc+0.0)/totcnt
         filter: totcnt>0
     order: switchavg desc
 output: >-
-  Top Switch Robots<br>
+  Top Cargo Robots<br>
   $$data$$
