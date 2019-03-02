@@ -33,4 +33,5 @@ inputs:
     type: submit
     label: Submit
     do: 
-      - eval $db->do("update question set numleft=0 where id like '$$match$$.match%'");
+      - eval $db->do("update question set numleft=0 where id like '$$match$$.blue%'");
+      - eval $db->do("update question set numleft=0 where id like '$$match$$.red%'");
