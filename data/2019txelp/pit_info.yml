@@ -13,22 +13,27 @@ inputs:
   - 
     type: list
     listdata: tactic
-    label: <br>What is the primary strategy focus for the robot?
+    label: <br>What is the primary strategy focus?
     saveas: $$team$$.primarystrategyfocus
   - 
     type: list
     listdata: tactic
-    label: <br>What is the secondary strategy focus for the robot?
+    label: <br>What is the secondary strategy focus?
     saveas: $$team$$.secondarystrategyfocus
   - 
     type: list
     listdata: tactic
-    label: <br>What is the tertiary strategy focus for the robot?
+    label: <br>What is the tertiary strategy focus?
     saveas: $$team$$.tertiarystrategyfocus
   - 
     type: list
+    listdata: sandstormtype
+    label: <br>What kind of sandstorm does the robot have: Vision/Camera or Autonounomous?
+    saveas: $$team$$.howdosand
+  - 
+    type: list
     listdata: autonomous
-    label: <br>What kind of autonomous does the robot have. Vision/Carmera or Autonounomous?
+    label: <br>What does the robot do in sandstorm?
     saveas: $$team$$.pitauto
   - 
     type: list

@@ -15,6 +15,7 @@ inputs:
   - 
     type: label
     label: You will be watching robot $$team$$ for match $$match$$
+    style: color:#00abFF;text-align:center
   -
     type: label
     label: <B>ENDGAME</B>
