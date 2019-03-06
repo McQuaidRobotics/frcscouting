@@ -14,42 +14,42 @@ variables:
 inputs:
   - 
     type: label
-    label: You will be watching robot $$team$$ for match $$match$$
+    label: Robot: $$team$$ for  match: $$match$$
   -
     type: label
     label: <B>TELEOP</B>
     style: text-align:center
   - 
     type: label
-    label: How many hatches did $$team$$ score?
+    label: Hatches Scored:
     style: text-align:center
   - 
     type: tally
     label: Cargo Ship
     saveas: $$match$$:$$team$$.cargoShipHatch
-    style: color:#00abFF;position:width:100%
+    style: color:#00abFF;width:70%;margin-bottom:20px;margin-left:auto;margin-right:auto
   - 
     type: tally
     label: Rocket
     saveas: $$match$$:$$team$$.rocketHatch
-    style: color:#00abFF;position:width:100%
+    style: color:#00abFF;width:70%;margin-left:auto;margin-right:auto
   - 
     type: label
-    label: <br>How many cargo did $$team$$ score?
+    label: <br>Cargo Scored:
     style: text-align:center
   - 
     type: tally
     label: Cargo Ship
     saveas: $$match$$:$$team$$.cargoShipCargo
-    style: color:#00abFF;position:width:100%
+    style: color:#00abFF;width:70%;margin-bottom:20px;margin-left:auto;margin-right:auto
   - 
     type: tally
     label: Rocket
     saveas: $$match$$:$$team$$.rocketCargo
-    style: color:#00abFF;position:width:100%
+    style: color:#00abFF;width:70%;margin-left:auto;margin-right:auto;margin-bottom:20px;
   - 
     type: submit
     label: Submit
-    style: text-align:center
+    style: display:block;margin:auto
     do: 
       - addquestion $$match$$.bluerobot1end
