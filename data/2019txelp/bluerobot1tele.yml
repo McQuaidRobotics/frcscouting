@@ -23,31 +23,31 @@ inputs:
   - 
     type: label
     label: Hatches Scored:
-    style: text-align:center
+    style: text-align:center;color:#ffeb3b
   - 
     type: tally
-    label: <font style:color:#00abFF;>Cargo Ship</font>
+    label: <font style="color:#00abFF">Cargo Ship</font>
     saveas: $$match$$:$$team$$.cargoShipHatch
-    style: width:70%;margin-bottom:20px;margin-left:auto;margin-right:auto;margin-top:20px;
+    style: color:#ffeb3b;width:70%;margin-bottom:1em;margin-left:auto;margin-right:auto;margin-top:1em;
   - 
     type: tally
-    label: Rocket
+    label: <font style="color:#00abFF">Rocket</font>
     saveas: $$match$$:$$team$$.rocketHatch
-    style: color:#00abFF;width:70%;margin-left:auto;margin-right:auto
+    style: color:#ffeb3b;width:70%;margin-left:auto;margin-right:auto
   - 
     type: label
     label: <br>Cargo Scored:
-    style: text-align:center
+    style: text-align:center;color:#ff8100
   - 
     type: tally
-    label: Cargo Ship
+    label: <font style="color:#00abFF">Cargo Ship</font>
     saveas: $$match$$:$$team$$.cargoShipCargo
-    style: color:#00abFF;width:70%;margin-bottom:20px;margin-left:auto;margin-right:auto;margin-top:20px;
+    style: color:#ff8100;width:70%;margin-bottom:1em;margin-left:auto;margin-right:auto;margin-top:1em;
   - 
     type: tally
-    label: Rocket
+    label: <font style="color:#00abFF">Rocket</font>
     saveas: $$match$$:$$team$$.rocketCargo
-    style: color:#00abFF;width:70%;margin-left:auto;margin-right:auto;margin-bottom:20px;
+    style: color:#ff8100;width:70%;margin-left:auto;margin-right:auto;margin-bottom:1em;
   - 
     type: submit
     label: Submit

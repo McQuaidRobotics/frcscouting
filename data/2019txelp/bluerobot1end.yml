@@ -23,8 +23,9 @@ inputs:
   - 
     type: list
     listdata: endgame
-    label: <br>Where did $$team$$ end<br>
+    label: <br>Where did $$team$$ end
     saveas: $$match$$:$$team$$.endgame
+    style: margin-bottom:1em
   - 
     type: list
     listdata: climbhow
