@@ -8,7 +8,7 @@ $name=shift(@ARGV);
 if($name eq ''){die("No name specified");}
 
 $port=3173;
-$base="13.92.88.88:$port";
+$base="shady:$port";
 
 if(!-e "data/$name/data.db"){system("./initdb.pl $name");}
 use DBI;$db = DBI->connect("dbi:SQLite:dbname=data/$name/data.db","","",{RaiseError=>1},) or die $DBI::errstr;
@@ -100,6 +100,21 @@ sub mux_input {
 		  userupdate($mux,$id);
 		}
 	      }
+	      if($cmd eq 'startupload'){
+	        undef $inputbuffer{$id};
+	      }
+	      if($cmd eq 'endupload'){
+	        my @chars=('a'..'z', 0..9);$rnd=join '',map {$chars[rand @chars]} 1..8;
+	        if(!-e "data/$name/upload"){system("mkdir \"data/$name/upload\"");}
+		while(-e "data/$name/upload/$rnd.jpg"){$rnd++;}
+		open(OUT, ">data/$name/upload/$rnd.jpg");print OUT $inputbuffer{$id};close(OUT);
+		undef $inputbuffer{$id};
+	        foreach my $fh($mux->handles){
+		  if($mux->{_fhs}->{$fh}->{object}->{state} eq 'user' && $mux->{_fhs}->{$fh}->{object}->{user}==$id){
+		    print $fh wsoutput("changeBox('photo$arg','<input type=hidden id=\"$arg\" name=\"$arg\" value=\"$rnd\"><div style=\"width:4em;height:4em;background-image:url(/img/$rnd.jpg);background-size:cover;background-position:center center;\"></div>');");
+		  }
+		}
+	      }
 	      if($cmd eq 'button' && $state{$id} eq 'entry' && $userq{$id}){
   		my ($key,$i)=split(/\./,$userq{$id});
 		foreach my $x(keys %$config){
@@ -141,7 +156,7 @@ sub mux_input {
 		  if(($config->{$x}->{'type'} eq 'question' || $config->{$x}->{'type'} eq 'input') && $config->{$x}->{'id'} eq $iii){
 		    @in=split(/ /,$arg);undef %val;
 		    my $xx=0;while($config->{$x}->{'inputs'}->[$xx]){
-		      if($config->{$x}->{'inputs'}->[$xx]->{'type'} eq 'text' || $config->{$x}->{'inputs'}->[$xx]->{'type'} eq 'list'){
+		      if($config->{$x}->{'inputs'}->[$xx]->{'type'} eq 'text' || $config->{$x}->{'inputs'}->[$xx]->{'type'} eq 'list' || $config->{$x}->{'inputs'}->[$xx]->{'type'} eq 'picture'){
 		        my $in='';my $ii=shift(@in);while(@in && $ii ne "\$\$val$xx\$\$"){$in.=$ii.' ';$ii=shift(@in);}chop($in);
 			$val{"val$xx"}=$in;
 			if($config->{$x}->{'inputs'}->[$xx]->{'saveas'}){my $s=keyreplace($config->{$x}->{'inputs'}->[$xx]->{'saveas'},$x,$userq{$id});
@@ -181,7 +196,12 @@ sub mux_input {
 		}
 	      }
 	    }
-          }
+          }elsif($type==82){
+	    if($self->{state} eq 'user'){$id=$self->{user};
+	      $inputbuffer{$id}.=$unmask;
+	      print STDERR "Upload data chunk received (".length($inputbuffer{$id}).")\n";
+	    }
+	  }
         }else{$$in_ref='';}
       }else{$$in_ref='';}
     }
@@ -190,7 +210,7 @@ sub mux_input {
     if($self->{state} eq 'header'){
       if($msg eq ''){
 	$self->{page}='';$_=$self->{header};
-	if(/GET \/([a-z0-9]*)/ig){$self->{page}=lc($1);}
+	if(/GET \/([a-z0-9\.\/]*)/ig){$self->{page}=lc($1);}
 	$_=$self->{header};
 	if(/Upgrade: websocket/ig){
 	  $_=$self->{header};if(/Sec-WebSocket-Key: (.*?)\r?\n/ig){$key=$1;
@@ -217,6 +237,13 @@ sub mux_input {
 	  }
 	}elsif(/Upgrade: datasource/ig){
 	  $self->{state}='source';
+	}elsif(substr($self->{page},0,4) eq 'img/'){my $m='';$file=substr($self->{page},4);$file=~s/[^0-9a-z\.]//g;
+	  print STDERR "Sending image $file\n";
+	  if(-e "data/$name/upload/$file"){$m=readpipe("cat \"data/$name/upload/$file\"");}
+	  print "HTTP/1.1 200 Here you go\r\n";
+	  print "Server: WS_bcast_data/0.1.0\r\nCache-Control: no-cache\r\nConnection: close\r\nContent-length: ".length($m)."\r\nContent-type: image/jpeg\r\n\r\n";
+	  print $m;
+	  forceclose($mux,$mux->{_fhs}->{$fh}->{object}->{id});
 	}else{
 	  print_page();forceclose($mux,$mux->{_fhs}->{$fh}->{object}->{id});
 	}
@@ -332,6 +359,19 @@ sub questiondata{my $q=shift(@_);my $uid=shift(@_);my $m='';
 	  $m.=$config->{$x}->{'inputs'}->[$xx]->{'label'}.' ';
 	  $m.="<input style=\"font-size:'+ht(10)+'px;".$config->{$x}->{'inputs'}->[$xx]->{'style'}."\" type=number id=val$xx>";
 	  push(@sub, "val$xx");
+	}elsif($config->{$x}->{'inputs'}->[$xx]->{'type'} eq 'picture'){
+	  $m.=$config->{$x}->{'inputs'}->[$xx]->{'label'}.' ';
+	  $m.="<div id=\"photoval$xx\"><div id=\"status$xx\"></div><div id=\"in$xx\"><input style=\"font-size:'+ht(10)+'px;".$config->{$x}->{'inputs'}->[$xx]->{'style'}."\" type=\"file\" accept=\"image/*\" capture=\"camera\" id=\"val$xx\" onChange=\"setTimeout(\\\'document.getElementById(\\\\\\\'inx$xx\\\\\\\').click();\\\',500);\"><br>";
+	  $m.="<input style=\"font-size:'+ht(10)+'px;".$config->{$x}->{'inputs'}->[$xx]->{'style'}."\" type=\"button\" value=\"Upload Image\" id=\"inx$xx\" onClick=\"";
+	  $m.="document.getElementById(\\\'in$xx\\\').style.display=\\\'hidden\\\';";
+	  $m.="r=new FileReader();r.readAsDataURL(document.getElementById(\\\'val$xx\\\').files[0]);";
+	  $m.="r.onload=function(evt){i=new Image();i.src=r.result;";
+	  $m.="w=i.width;h=i.height;if(w>h && w>1000){h*=1000/w;w=1000;}else if(h>w && h>1000){w*=1000/h;h=1000;}";
+	  $m.="c=document.createElement(\\\'canvas\\\');c.width=w;c.height=h;c.getContext(\\\'2d\\\').drawImage(i,0,0,w,h);";
+	  $m.="setTimeout(\\\'c.toBlob(function(b){var x=0;var e=b.size;sendData(\\\\\\\'startupload\\\\\\\');";
+	  $m.="while(x<e){var xx=x+1024;if(xx>e){xx=e;}sendData(b.slice(x,xx));x=xx;changeBox(\\\\\\\'status$xx\\\\\\\',\\\\\\\'Uploading - \\\\\\\'+xx+\\\\\\\'/\\\\\\\'+e);}";
+  	  $m.="sendData(\\\\\\\'endupload val$xx\\\\\\\');},\\\\\\\'image/jpeg\\\\\\\');\\\',1000);};\"></div></div>";
+	  push(@sub, "val$xx");
 	}elsif($config->{$x}->{'inputs'}->[$xx]->{'type'} eq 'button'){
 	  $m.="<input style=\"font-size:'+ht(10)+'px;".$config->{$x}->{'inputs'}->[$xx]->{'style'}."\" type=button ";
 	  $m.="value=\"".$config->{$x}->{'inputs'}->[$xx]->{'label'}."\" onClick=\"sendData(\\\'button $xx\\\');\">";
@@ -440,6 +480,11 @@ sub getvar{my $x=shift(@_);my $xx=shift(@_);my $kkk=shift(@_);my $ek=shift(@_);m
       if(!$user{$us}){my $uu=$dbu->prepare(qq{select name from user where id=?});$uu->execute($us);$user{$us}=$uu->fetchrow_array();}
       $a.="<li>$ad - ".$user{$us}." - $v</li>";
     }$a.="</ul>";
+  }elsif($xx->{'type'} eq 'userlist'){$a="<table border=1><tr><th>User</th><th>Exp</th><th>Role</th></tr>";
+    my $u=$dbu->prepare(qq{select name,exp,role from user order by exp desc});
+    $u->execute();while(($un,$ue,$ur)=$u->fetchrow_array()){
+      $a.="<tr><td>$un</td><td>$ue</td><td>$ur</td></tr>";
+    }$a.="</table>";
   }elsif($xx->{'type'} eq 'table'){
     my $dbm=DBI->connect("dbi:SQLite:dbname=:memory:");
     my $t="create table temp (".$xx->{'key'}." varchar(64)";

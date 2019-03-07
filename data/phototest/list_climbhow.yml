@@ -1,0 +1,8 @@
+---
+type: list
+id: climbhow
+populate:
+  - Climbed Themselves
+  - Got Help From Buddy
+  - Helped a Buddy
+  - Did Not Climb

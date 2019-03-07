@@ -1,0 +1,25 @@
+---
+type: report
+id: reportteam
+key: team
+reqlevel: 1
+title: Robot Report
+variables:
+  - 
+    name: teamname
+    type: string
+    source: $$team$$.teamname
+  - 
+    name: teampic
+    type: string
+    source: $$team$$.robotphoto
+  - 
+    name: comments
+    type: commentlist
+    source: $$team$$.comments
+output: >-
+  Team $$team$$<br>
+  $$teamname$$<br>
+  <div style="width:7em;height:7em;background-image:url(/img/$$teampic$$.jpg);background-size:cover;background-position:center center;"></div>
+  <br>
+  $$comments$$
