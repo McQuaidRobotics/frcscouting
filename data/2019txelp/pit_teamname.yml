@@ -1,16 +1,16 @@
 ---
 type: question
-id: teamname
+id: teamphoto
 key: team
-role: dataentry
-priority: 6
+role: pitscout
+priority: 1
 dataneeded: 1
-expvalue: 2
+expvalue: 1
 inputs:
   - 
-    type: text
-    label: What is the team name for team $$team$$?<br>
-    saveas: $$team$$.teamname
+    type: picture
+    label: Take a picture of the robot for team $$team$$<br>
+    saveas: $$team$$.robotphoto
   - 
     type: label
     label: <br>
