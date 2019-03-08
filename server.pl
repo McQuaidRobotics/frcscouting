@@ -8,7 +8,7 @@ $name=shift(@ARGV);
 if($name eq ''){die("No name specified");}
 
 $port=3173;
-$base="shady:$port";
+$base="13.92.88.88:$port";
 
 if(!-e "data/$name/data.db"){system("./initdb.pl $name");}
 use DBI;$db = DBI->connect("dbi:SQLite:dbname=data/$name/data.db","","",{RaiseError=>1},) or die $DBI::errstr;
@@ -201,8 +201,8 @@ sub mux_input {
 	      $inputbuffer{$id}.=$unmask;
 	      print STDERR "Upload data chunk received (".length($inputbuffer{$id}).")\n";
 	    }
-	  }
-        }else{$$in_ref='';}
+	  }else{print STDERR "Message type $type recieved\n";}
+        }else{return;}
       }else{$$in_ref='';}
     }
   }while ($$in_ref =~ s/^(.*?)\r?\n//){
