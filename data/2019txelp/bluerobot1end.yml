@@ -5,7 +5,7 @@ key: match
 role: matchscout
 priority: 5
 dataneeded: 0
-expvalue: 3
+expvalue: 1
 variables:
   - 
     name: team

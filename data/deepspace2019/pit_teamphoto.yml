@@ -1,0 +1,19 @@
+---
+type: question
+id: teamphoto
+key: team
+role: pitscout
+priority: 6
+dataneeded: 0
+expvalue: 1
+inputs:
+  - 
+    type: picture
+    label: Take a picture of the robot for team $$team$$<br>
+    saveas: $$team$$.robotphoto
+  - 
+    type: label
+    label: <br>
+  - 
+    type: submit
+    label: Submit

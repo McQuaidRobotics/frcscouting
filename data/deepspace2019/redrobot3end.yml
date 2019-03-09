@@ -5,7 +5,7 @@ key: match
 role: matchscout
 priority: 5
 dataneeded: 0
-expvalue: 3
+expvalue: 1
 variables:
   - 
     name: team
@@ -15,6 +15,7 @@ inputs:
   - 
     type: label
     label: You will be watching robot $$team$$ for match $$match$$
+    style: color:#FF0000;text-align:center
   -
     type: label
     label: <B>ENDGAME</B>
@@ -22,8 +23,9 @@ inputs:
   - 
     type: list
     listdata: endgame
-    label: <br>Where did $$team$$ end<br>
+    label: <br>Where did $$team$$ end
     saveas: $$match$$:$$team$$.endgame
+    style: margin-bottom:1em
   - 
     type: list
     listdata: climbhow

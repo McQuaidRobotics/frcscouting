@@ -1,11 +1,7 @@
 ---
 type: list
-id: autonomous
+id: planguage
 populate:
-  - Nothing
-  - Move
-  - Cargo
-  - Hatch
-  - Multi-Hatch
-  - Multi-Cargo
-  - Cargo and Hatch
+  - LabVIEW
+  - C++
+  - Java

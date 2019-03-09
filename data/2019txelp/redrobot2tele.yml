@@ -14,42 +14,43 @@ variables:
 inputs:
   - 
     type: label
-    label: You will be watching robot $$team$$ for match $$match$$
+    label: Robot: $$team$$ for  match: $$match$$
+    style: color:#FF0000;text-align:center
   -
     type: label
     label: <B>TELEOP</B>
     style: text-align:center
   - 
     type: label
-    label: How many hatches did $$team$$ score?
-    style: text-align:center
+    label: Hatches Scored:
+    style: text-align:center;color:#ffeb3b
   - 
     type: tally
-    label: Cargo Ship
+    label: <font style="color:#FF0000">Cargo Ship</font>
     saveas: $$match$$:$$team$$.cargoShipHatch
-    style: color:#FF0000;position:width:100%
+    style: color:#ffeb3b;width:70%;margin-bottom:1em;margin-left:auto;margin-right:auto;margin-top:1em;
   - 
     type: tally
-    label: Rocket
+    label: <font style="color:#FF0000">Rocket</font>
     saveas: $$match$$:$$team$$.rocketHatch
-    style: color:#FF0000;position:width:100%
+    style: color:#ffeb3b;width:70%;margin-left:auto;margin-right:auto
   - 
     type: label
-    label: <br>How many cargo did $$team$$ score?
-    style: text-align:center
+    label: <br>Cargo Scored:
+    style: text-align:center;color:#ff8100
   - 
     type: tally
-    label: Cargo Ship
+    label: <font style="color:#FF0000">Cargo Ship</font>
     saveas: $$match$$:$$team$$.cargoShipCargo
-    style: color:#FF0000;position:width:100%
+    style: color:#ff8100;width:70%;margin-bottom:1em;margin-left:auto;margin-right:auto;margin-top:1em;
   - 
     type: tally
-    label: Rocket
+    label: <font style="color:#FF0000">Rocket</font>
     saveas: $$match$$:$$team$$.rocketCargo
-    style: color:#FF0000;position:width:100%
+    style: color:#ff8100;width:70%;margin-left:auto;margin-right:auto;margin-bottom:1em;
   - 
     type: submit
     label: Submit
-    style: text-align:center
+    style: display:block;margin:auto
     do: 
       - addquestion $$match$$.redrobot2end

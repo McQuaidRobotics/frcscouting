@@ -10,6 +10,10 @@ variables:
     type: string
     source: $$team$$.teamname
   - 
+    name: teampic
+    type: string
+    source: $$team$$.robotphoto
+  - 
     name: strategy
     type: string
     source: $$team$$.primarystrategyfocus
@@ -78,6 +82,7 @@ variables:
 output: >-
   Team $$team$$<br>
   $$teamname$$<br>
+  <div style="width:7em;height:7em;background-image:url(/img/$$teampic$$.jpg);background-size:cover;background-position:center center;"></div>
   <div style="font-size:50%;"><br>
   Reported strategy - $$strategy$$<br>
   Average Hatch - Cargo Ship - $$cshatchavg$$<br>
