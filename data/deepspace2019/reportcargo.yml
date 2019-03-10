@@ -19,12 +19,12 @@ variables:
         source: %:$$team$$.cargoShipCargo
       - 
         name: totcs
-        title: Cargo Ship
+        title: Cargo Ship Total
         type: sum
         source: %:$$team$$.cargoShipCargo
       - 
         name: totroc
-        title: Rocket
+        title: Rocket Total
         type: sum
         source: %:$$team$$.rocketCargo
       - 

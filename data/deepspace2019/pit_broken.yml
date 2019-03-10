@@ -34,4 +34,5 @@ inputs:
     do:
       - delay $$team$$.pitbroken 20 minutes
       - addquestion $$team$$.pitbroken
+      - addtextdata $$team$$.comments Pit Check back later - $$val1$$
       - markdone

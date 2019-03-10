@@ -76,9 +76,49 @@ variables:
     order: endcount desc
     filter: endcount>0
   - 
+    name: planguage
+    type: string
+    source: $$team$$.planguage
+  - 
     name: comments
     type: commentlist
     source: $$team$$.comments
+  - 
+    name: avgscore
+    type: average
+    source: %:$$team$$.score
+    filter: val>0
+  - 
+    name: avgrank
+    type: average
+    source: %:$$team$$.rankpoints
+  - 
+    name: numbats
+    type: average
+    source: $$team$$.numbatteries
+  - 
+    name: progtime
+    type: average
+    source: $$team$$.programingtime
+  - 
+    name: matches
+    type: table
+    key: matches
+    keytitle: Match Number
+    source: .matches
+    columns: 
+      - 
+        name: score
+        title: Score
+        type: average
+        source: %:$$team$$.score
+      - 
+        name: ranking
+        title: Ranking Points
+        type: average
+        source: %:$$team$$.rankpoints
+    filter: score>0
+        
 output: >-
   Team $$team$$<br>
   $$teamname$$<br>
@@ -89,10 +129,16 @@ output: >-
   Average Hatch - Rocket $$rockethatchavg$$<br>
   Average Cargo - Cargo Ship - $$cscargoavg$$<br>
   Average Cargo - Rocket - $$rocketcargoavg$$<br>
+  Average Match Score - $$avgscore$$<br>
+  Average Ranking Points - $$rankpoints$$<br>
   <br>
   Reported autonomous - $$pitauto$$<br>
   $$autotable$$<br>
   Reported can climb - $$canclimb$$<br>
   $$endtable$$
   <br>
-  $$comments$$
+  Programming Language - $$planguage$$<br>
+  Number of Batteries- $$numbats$$<br>
+  Time of Programming- $$progtime$$<br>
+  $$comments$$<br>
+  $$matches$$

@@ -32,8 +32,15 @@ inputs:
     label: <br>How did they climb?
     saveas: $$match$$:$$team$$.climbhow
   - 
+    type: button
+    label: Report Breakdown
+    style: background-color:#FF0000;margin-bottom:1em
+    do: 
+      - addquestion $$team$$.ematchbroken
+  - 
     type: submit
     label: Submit
     do: 
       - eval $db->do("update question set numleft=0 where id like '$$match$$.blue%'");
       - eval $db->do("update question set numleft=0 where id like '$$match$$.red%'");
+      - addquestion $$match$$.ematchscore

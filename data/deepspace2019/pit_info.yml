@@ -49,17 +49,12 @@ inputs:
     type: list
     listdata: yesno 
     label: <br>Does your robot support other robots while climbing?
-    saveas: $$team$$.climblevel
-  -
-    type: list
-    listdata: yesno 
-    label: <br>Does your robot support other robots while climbing?
-    saveas: $$team$$.climblevel
+    saveas: $$team$$.supportclimb
   - 
     type: list
     listdata: planguage
     label: <br>What language does your team use to program the robot?
-    saveas: $$team$$.programminglanguage
+    saveas: $$team$$.planguage
   -
     type: number
     label: <br>How many hours did your team have to program your robot?
@@ -70,7 +65,7 @@ inputs:
     saveas: $$team$$.numbatteries
   - 
     type: picture
-    label: Take a picture of the robot for team $$team$$<br>
+    label: <br>Take a picture of the robot for team $$team$$<br>
     saveas: $$team$$.robotphoto
   -
     type: text
@@ -82,4 +77,4 @@ inputs:
     type: submit
     label: Submit
     do:
-      - eval $x='$$val14$$';if($x){runaction("addtextdata $$team$$.comments Pit Scout - $x");}
+      - eval $x='$$val13$$';if($x){runaction("addtextdata $$team$$.comments Pit Scout - $x");}

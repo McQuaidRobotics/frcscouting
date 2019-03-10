@@ -1,0 +1,12 @@
+---
+type: report
+id: reportuser
+key: 
+reqlevel: 1
+title: User Report
+variables:
+  - 
+    name: out
+    type: userlist
+output: >-
+  $$out$$
