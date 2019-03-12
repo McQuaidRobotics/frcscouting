@@ -54,3 +54,5 @@ inputs:
     style: display:block;margin:auto
     do: 
       - addquestion $$match$$.redrobot3end
+      - eval $x=$$val6$$+$$val7$$;runaction("addnumdata $$match$$.$$team$$.cargo $x");
+      - eval $x=$$val3$$+$$val4$$;runaction("addnumdata $$match$$.$$team$$.hatch $x");

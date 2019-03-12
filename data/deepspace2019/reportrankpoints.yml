@@ -22,6 +22,11 @@ variables:
         title: Average RP
         type: average
         source: %:$$team$$.rankpoints
+      - 
+        name: sumpts
+        title: Total RP
+        type: sum
+        source: %:$$team$$.rankpoints
     order: avgpts desc
 output: >-
   Top Ranking Robots<br>
