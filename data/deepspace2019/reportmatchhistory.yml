@@ -26,22 +26,22 @@ variables:
         name: cscargo
         title: Cargo
         type: average
-        source: $$match$$:$$team$$.cargoshipcargo
+        source: $$match$$:$$team$$.cargoShipCargo
       - 
         name: rcargo
         title: Cargo
         type: average
-        source: $$match$$:$$team$$.rocketcargo
+        source: $$match$$:$$team$$.rocketCargo
       - 
         name: cshatch
         title: Cargo
         type: average
-        source: $$match$$:$$team$$.cargoshiphatch
+        source: $$match$$:$$team$$.cargoShipHatch
       - 
         name: rhatch
         title: Cargo
         type: average
-        source: $$match$$:$$team$$.rockethatch
+        source: $$match$$:$$team$$.rocketHatch
       - 
         name: cargo
         title: Cargo
@@ -74,7 +74,7 @@ variables:
         source: (hatch - 0.0) - avghatch
     filter: score>0
     order: match ASC
-    showcolumns: score, ranking, cargo, hatch, avgcargo, avghatch, cargodif, hatchdif
+    showcolumns: match, score, ranking, cargo, hatch, avgcargo, avghatch, cargodif, hatchdif
 output: >-
   Team $$team$$<br>
   $$matches$$
