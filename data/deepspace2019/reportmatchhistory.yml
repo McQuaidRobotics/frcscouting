@@ -1,3 +1,10 @@
+---
+type: report
+id: reportmatchhistory
+key: team
+reqlevel: 1
+title: Match History
+variables: 
   - 
     name: matches
     type: table
