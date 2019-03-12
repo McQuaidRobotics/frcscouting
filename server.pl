@@ -155,7 +155,7 @@ sub mux_input {
 		foreach my $x(keys %$config){
 		  if(($config->{$x}->{'type'} eq 'question' || $config->{$x}->{'type'} eq 'input') && $config->{$x}->{'id'} eq $iii){
 		    @in=split(/ /,$arg);undef %val;
-		    my $xx=0;while($config->{$x}->{'inputs'}->[$xx]){
+		    my $xx=0;while($config->{$x}->{'inputs'}->[$xx]){		    
 		      if($config->{$x}->{'inputs'}->[$xx]->{'type'} eq 'text' || $config->{$x}->{'inputs'}->[$xx]->{'type'} eq 'list' || $config->{$x}->{'inputs'}->[$xx]->{'type'} eq 'picture'){
 		        my $in='';my $ii=shift(@in);while(@in && $ii ne "\$\$val$xx\$\$"){$in.=$ii.' ';$ii=shift(@in);}chop($in);
 			$val{"val$xx"}=$in;
@@ -509,7 +509,8 @@ sub getvar{my $x=shift(@_);my $xx=shift(@_);my $kkk=shift(@_);my $ek=shift(@_);m
     }$c++;}
     $t=$xx->{'order'};
     my $ex='';if($xx->{'filter'}){$ex="where ".keyreplace($xx->{'filter'},$x,$kkk,1,$ek);}
-    my $u=$dbm->prepare(qq{select * from temp $ex order by $t});
+	my $show='*';if($xx->{'showcolumns'}){$show=$xx->{'showcolumns'};}
+    my $u=$dbm->prepare(qq{select $show from temp $ex order by $t});
     $u->execute();my @dd;while(@dd=$u->fetchrow_array()){$a.="<tr>";foreach $t(@dd){$a.="<td>$t</td>";}$a.="</td>";}
     $a.="</table>";
     $u->finish();$dbm->disconnect();

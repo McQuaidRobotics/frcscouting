@@ -23,25 +23,45 @@ variables:
         type: average
         source: $$match$$:$$team$$.rankpoints
       - 
-        name: cargo
+        name: cscargo
         title: Cargo
         type: average
-        source: $$match$$:$$team$$.cargo
+        source: $$match$$:$$team$$.cargoshipcargo
+      - 
+        name: rcargo
+        title: Cargo
+        type: average
+        source: $$match$$:$$team$$.rocketcargo
+      - 
+        name: cshatch
+        title: Cargo
+        type: average
+        source: $$match$$:$$team$$.cargoshiphatch
+      - 
+        name: rhatch
+        title: Cargo
+        type: average
+        source: $$match$$:$$team$$.rockethatch
+      - 
+        name: cargo
+        title: Cargo
+        type: sql
+        source: rcargo + cscargo
       - 
         name: hatch
         title: Hatch
-        type: average
-        source: $$match$$:$$team$$.hatch
+        type: sql
+        source: rhatch + cshatch
       - 
         name: avgcargo
         title: Average Cargo
-        type: average
-        source: %:$$team$$.cargo
+        type: sql
+        source: avg(cargo)
       - 
         name: avghatch
         title: Average Hatch
-        type: average
-        source: %:$$team$$.hatch
+        type: sql
+        source: avg(hatch)
       - 
         name: cargodif
         title: Cargo vs Average
@@ -53,7 +73,8 @@ variables:
         type: sql
         source: (hatch - 0.0) - avghatch
     filter: score>0
-    order: matches ASC
+    order: match ASC
+    showcolumns: score, ranking, cargo, hatch, avgcargo, avghatch, cargodif, hatchdif
 output: >-
   Team $$team$$<br>
   $$matches$$
