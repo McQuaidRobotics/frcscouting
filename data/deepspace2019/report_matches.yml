@@ -4,6 +4,7 @@ id: matchreport
 key:
 reqlevel: 5
 title: Matches in Queue
+role: scoutmaster
 variables:
   - 
     name: matches

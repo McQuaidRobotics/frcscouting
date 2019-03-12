@@ -100,25 +100,6 @@ variables:
     name: progtime
     type: average
     source: $$team$$.programingtime
-  - 
-    name: matches
-    type: table
-    key: matches
-    keytitle: Match Number
-    source: .matches
-    columns: 
-      - 
-        name: score
-        title: Score
-        type: average
-        source: %:$$team$$.score
-      - 
-        name: ranking
-        title: Ranking Points
-        type: average
-        source: %:$$team$$.rankpoints
-    filter: score>0
-        
 output: >-
   Team $$team$$<br>
   $$teamname$$<br>
@@ -130,7 +111,7 @@ output: >-
   Average Cargo - Cargo Ship - $$cscargoavg$$<br>
   Average Cargo - Rocket - $$rocketcargoavg$$<br>
   Average Match Score - $$avgscore$$<br>
-  Average Ranking Points - $$rankpoints$$<br>
+  Average Ranking Points - $$avgrank$$<br>
   <br>
   Reported autonomous - $$pitauto$$<br>
   $$autotable$$<br>
@@ -140,5 +121,4 @@ output: >-
   Programming Language - $$planguage$$<br>
   Number of Batteries- $$numbats$$<br>
   Time of Programming- $$progtime$$<br>
-  $$comments$$<br>
-  $$matches$$
+  $$comments$$

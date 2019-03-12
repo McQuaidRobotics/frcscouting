@@ -1,0 +1,42 @@
+  - 
+    name: matches
+    type: table
+    key: matches
+    keytitle: Match Number
+    source: .matches
+    columns: 
+      - 
+        name: score
+        title: Score
+        type: average
+        source: %:$$team$$.score
+      - 
+        name: ranking
+        title: Ranking Points
+        type: average
+        source: %:$$team$$.rankpoints
+      - 
+        name: cargocs
+        title: cargoShipCargo
+        type: average
+        source: %:$$team$$.cargoShipCargo
+      - 
+        name: hatchcs
+        title: cargoShipHatch
+        type: average
+        source: %:$$team$$.cargoShipHatch
+      - 
+        name: hatchr
+        title: rocketCargo
+        type: average
+        source: %:$$team$$.rocketCargo
+      - 
+        name: hatchr
+        title: rocketHatch
+        type: average
+        source: %:$$team$$.rocketHatch
+    filter: score>0
+    order: matches ASC
+output: >-
+  Team $$team$$<br>
+  $$matches$$
