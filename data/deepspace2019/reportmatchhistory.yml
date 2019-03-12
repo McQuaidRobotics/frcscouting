@@ -8,7 +8,7 @@ variables:
   - 
     name: matches
     type: table
-    key: matches
+    key: match
     keytitle: Match Number
     source: .matches
     columns: 
@@ -24,22 +24,22 @@ variables:
         source: %:$$team$$.rankpoints
       - 
         name: cargocs
-        title: cargoShipCargo
+        title: Cargo CS
         type: average
         source: %:$$team$$.cargoShipCargo
       - 
         name: hatchcs
-        title: cargoShipHatch
+        title: Hatch CS
         type: average
         source: %:$$team$$.cargoShipHatch
       - 
-        name: hatchr
-        title: rocketCargo
+        name: cargor
+        title: Cargo Rocket
         type: average
         source: %:$$team$$.rocketCargo
       - 
         name: hatchr
-        title: rocketHatch
+        title: Hatch Rocket
         type: average
         source: %:$$team$$.rocketHatch
     filter: score>0
