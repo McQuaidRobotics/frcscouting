@@ -65,16 +65,6 @@ variables:
         type: average
         source: %:$$team$$.rocketHatch
       - 
-        name: cargo
-        title: Cargo
-        type: sql
-        source: rcargo + cscargo
-      - 
-        name: hatch
-        title: Hatches
-        type: sql
-        source: rhatch + cshatch
-      - 
         name: avgcargo
         title: Average Cargo
         type: sql
