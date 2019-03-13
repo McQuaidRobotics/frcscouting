@@ -8,7 +8,7 @@ $name=shift(@ARGV);
 if($name eq ''){die("No name specified");}
 
 $port=3173;
-$base="scout.igknighters.com:$port";
+$base="shady:$port";
 
 if(!-e "data/$name/data.db"){system("./initdb.pl $name");}
 use DBI;$db = DBI->connect("dbi:SQLite:dbname=data/$name/data.db","","",{RaiseError=>1},) or die $DBI::errstr;
@@ -429,11 +429,12 @@ sub keyreplace{my $m=shift(@_);my $x=shift(@_);my $kkk=shift(@_);my $early=shift
   while(@kk){my $a=shift(@k);my $b=shift(@kk);
     $m=~s/\$\$$b\$\$/$a/ig;
   }
-  if($early>0){return $m;}
   my $xx=0;while($config->{$x}->{'variables'}->[$xx]){
-    my $b=$config->{$x}->{'variables'}->[$xx]->{'name'};
-    my $a=getvar($x,$config->{$x}->{'variables'}->[$xx],$kkk);
-    $m=~s/\$\$$b\$\$/$a/ig;
+    my $b=$config->{$x}->{'variables'}->[$xx]->{'name'};$_=$m;
+    if(/\$\$$b\$\$/ig){
+      my $a=getvar($x,$config->{$x}->{'variables'}->[$xx],$kkk);
+      $m=~s/\$\$$b\$\$/$a/ig;
+    }
   $xx++;}
   return $m;
 }
@@ -485,12 +486,12 @@ sub getvar{my $x=shift(@_);my $xx=shift(@_);my $kkk=shift(@_);my $ek=shift(@_);m
     $u->execute();while(($un,$ue,$ur)=$u->fetchrow_array()){
       $a.="<tr><td>$un</td><td>$ue</td><td>$ur</td></tr>";
     }$a.="</table>";
-  }elsif($xx->{'type'} eq 'table'){
+  }elsif($xx->{'type'} eq 'table'){my $show=$xx->{'key'};
     my $dbm=DBI->connect("dbi:SQLite:dbname=:memory:");
     my $t="create table temp (".$xx->{'key'}." varchar(64)";
     $a="<table border=1><tr><th>".$xx->{'keytitle'}."</th>";
     my $c=0;while($xx->{'columns'}->[$c]){
-      if($xx->{'columns'}->[$c]->{'title'}){$a.="<th>".$xx->{'columns'}->[$c]->{'title'}."</th>";}
+      if($xx->{'columns'}->[$c]->{'title'}){$a.="<th>".$xx->{'columns'}->[$c]->{'title'}."</th>";$show.=",".$xx->{'columns'}->[$c]->{'name'};}
       my $tt="integer";if($xx->{'columns'}->[$c]->{'type'} eq 'string'){$tt="varchar(255)";}
       elsif($xx->{'columns'}->[$c]->{'type'} eq 'sql'){$tt="float";}
       $t.=", ".$xx->{'columns'}->[$c]->{'name'}." $tt";
@@ -509,7 +510,7 @@ sub getvar{my $x=shift(@_);my $xx=shift(@_);my $kkk=shift(@_);my $ek=shift(@_);m
     }$c++;}
     $t=$xx->{'order'};
     my $ex='';if($xx->{'filter'}){$ex="where ".keyreplace($xx->{'filter'},$x,$kkk,1,$ek);}
-	my $show='*';if($xx->{'showcolumns'}){$show=$xx->{'showcolumns'};}
+    if($xx->{'showcolumns'}){$show=$xx->{'showcolumns'};}
     my $u=$dbm->prepare(qq{select $show from temp $ex order by $t});
     $u->execute();my @dd;while(@dd=$u->fetchrow_array()){$a.="<tr>";foreach $t(@dd){$a.="<td>$t</td>";}$a.="</td>";}
     $a.="</table>";

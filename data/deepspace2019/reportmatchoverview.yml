@@ -32,7 +32,7 @@ variables:
   - 
     name: teamr1t
     type: table
-    key: match
+    key: matchr1
     keytitle: Match Number
     source: .match
     columns: 
@@ -40,28 +40,28 @@ variables:
         name: score
         title: Score
         type: average
-        source: $$match$$:$$teamr1$$.score
+        source: $$matchr1$$:$$teamr1$$.score
       - 
         name: ranking
         title: Ranking Points
         type: average
-        source: $$match$$:$$teamr1$$.rankpoints
+        source: $$matchr1$$:$$teamr1$$.rankpoints
       - 
         name: cscargo
         type: average
-        source: $$match$$:$$teamr1$$.cargoShipCargo
+        source: $$matchr1$$:$$teamr1$$.cargoShipCargo
       - 
         name: rcargo
         type: average
-        source: $$match$$:$$teamr1$$.rocketCargo
+        source: $$matchr1$$:$$teamr1$$.rocketCargo
       - 
         name: cshatch
         type: average
-        source: $$match$$:$$teamr1$$.cargoShipHatch
+        source: $$matchr1$$:$$teamr1$$.cargoShipHatch
       - 
         name: rhatch
         type: average
-        source: $$match$$:$$teamr1$$.rocketHatch
+        source: $$matchr1$$:$$teamr1$$.rocketHatch
       - 
         name: cargo
         title: Cargo
@@ -109,12 +109,11 @@ variables:
         type: sql
         source: (hatch - 0.0) - avghatch
     filter: score>0
-    order: match ASC
-    showcolumns: match, score, ranking, cargo, hatch, avgcargo, avghatch, cargodif, hatchdif
+    order: matchr1 ASC
   - 
     name: teamr2t
     type: table
-    key: match
+    key: matchr2
     keytitle: Match Number
     source: .match
     columns: 
@@ -122,28 +121,28 @@ variables:
         name: score
         title: Score
         type: average
-        source: $$match$$:$$teamr2$$.score
+        source: $$matchr2$$:$$teamr2$$.score
       - 
         name: ranking
         title: Ranking Points
         type: average
-        source: $$match$$:$$teamr2$$.rankpoints
+        source: $$matchr2$$:$$teamr2$$.rankpoints
       - 
         name: cscargo
         type: average
-        source: $$match$$:$$teamr2$$.cargoShipCargo
+        source: $$matchr2$$:$$teamr2$$.cargoShipCargo
       - 
         name: rcargo
         type: average
-        source: $$match$$:$$teamr2$$.rocketCargo
+        source: $$matchr2$$:$$teamr2$$.rocketCargo
       - 
         name: cshatch
         type: average
-        source: $$match$$:$$teamr2$$.cargoShipHatch
+        source: $$matchr2$$:$$teamr2$$.cargoShipHatch
       - 
         name: rhatch
         type: average
-        source: $$match$$:$$teamr2$$.rocketHatch
+        source: $$matchr2$$:$$teamr2$$.rocketHatch
       - 
         name: cargo
         title: Cargo
@@ -191,12 +190,11 @@ variables:
         type: sql
         source: (hatch - 0.0) - avghatch
     filter: score>0
-    order: match ASC
-    showcolumns: match, score, ranking, cargo, hatch, avgcargo, avghatch, cargodif, hatchdif
+    order: matchr2 ASC
   - 
     name: teamr3t
     type: table
-    key: match
+    key: matchr3
     keytitle: Match Number
     source: .match
     columns: 
@@ -204,28 +202,28 @@ variables:
         name: score
         title: Score
         type: average
-        source: $$match$$:$$teamr3$$.score
+        source: $$matchr3$$:$$teamr3$$.score
       - 
         name: ranking
         title: Ranking Points
         type: average
-        source: $$match$$:$$teamr3$$.rankpoints
+        source: $$matchr3$$:$$teamr3$$.rankpoints
       - 
         name: cscargo
         type: average
-        source: $$match$$:$$teamr3$$.cargoShipCargo
+        source: $$matchr3$$:$$teamr3$$.cargoShipCargo
       - 
         name: rcargo
         type: average
-        source: $$match$$:$$teamr3$$.rocketCargo
+        source: $$matchr3$$:$$teamr3$$.rocketCargo
       - 
         name: cshatch
         type: average
-        source: $$match$$:$$teamr3$$.cargoShipHatch
+        source: $$matchr3$$:$$teamr3$$.cargoShipHatch
       - 
         name: rhatch
         type: average
-        source: $$match$$:$$teamr3$$.rocketHatch
+        source: $$matchr3$$:$$teamr3$$.rocketHatch
       - 
         name: cargo
         title: Cargo
@@ -273,12 +271,11 @@ variables:
         type: sql
         source: (hatch - 0.0) - avghatch
     filter: score>0
-    order: match ASC
-    showcolumns: match, score, ranking, cargo, hatch, avgcargo, avghatch, cargodif, hatchdif
+    order: matchr3 ASC
   - 
     name: teamb1t
     type: table
-    key: match
+    key: matchb1
     keytitle: Match Number
     source: .match
     columns: 
@@ -286,28 +283,28 @@ variables:
         name: score
         title: Score
         type: average
-        source: $$match$$:$$teamb1$$.score
+        source: $$matchb1$$:$$teamb1$$.score
       - 
         name: ranking
         title: Ranking Points
         type: average
-        source: $$match$$:$$teamb1$$.rankpoints
+        source: $$matchb1$$:$$teamb1$$.rankpoints
       - 
         name: cscargo
         type: average
-        source: $$match$$:$$teamb1$$.cargoShipCargo
+        source: $$matchb1$$:$$teamb1$$.cargoShipCargo
       - 
         name: rcargo
         type: average
-        source: $$match$$:$$teamb1$$.rocketCargo
+        source: $$matchb1$$:$$teamb1$$.rocketCargo
       - 
         name: cshatch
         type: average
-        source: $$match$$:$$teamb1$$.cargoShipHatch
+        source: $$matchb1$$:$$teamb1$$.cargoShipHatch
       - 
         name: rhatch
         type: average
-        source: $$match$$:$$teamb1$$.rocketHatch
+        source: $$matchb1$$:$$teamb1$$.rocketHatch
       - 
         name: cargo
         title: Cargo
@@ -355,12 +352,11 @@ variables:
         type: sql
         source: (hatch - 0.0) - avghatch
     filter: score>0
-    order: match ASC
-    showcolumns: match, score, ranking, cargo, hatch, avgcargo, avghatch, cargodif, hatchdif
+    order: matchb1 ASC
   - 
     name: teamb2t
     type: table
-    key: match
+    key: matchb2
     keytitle: Match Number
     source: .match
     columns: 
@@ -368,28 +364,28 @@ variables:
         name: score
         title: Score
         type: average
-        source: $$match$$:$$teamb2$$.score
+        source: $$matchb2$$:$$teamb2$$.score
       - 
         name: ranking
         title: Ranking Points
         type: average
-        source: $$match$$:$$teamb2$$.rankpoints
+        source: $$matchb2$$:$$teamb2$$.rankpoints
       - 
         name: cscargo
         type: average
-        source: $$match$$:$$teamb2$$.cargoShipCargo
+        source: $$matchb2$$:$$teamb2$$.cargoShipCargo
       - 
         name: rcargo
         type: average
-        source: $$match$$:$$teamb2$$.rocketCargo
+        source: $$matchb2$$:$$teamb2$$.rocketCargo
       - 
         name: cshatch
         type: average
-        source: $$match$$:$$teamb2$$.cargoShipHatch
+        source: $$matchb2$$:$$teamb2$$.cargoShipHatch
       - 
         name: rhatch
         type: average
-        source: $$match$$:$$teamb2$$.rocketHatch
+        source: $$matchb2$$:$$teamb2$$.rocketHatch
       - 
         name: cargo
         title: Cargo
@@ -437,12 +433,11 @@ variables:
         type: sql
         source: (hatch - 0.0) - avghatch
     filter: score>0
-    order: match ASC
-    showcolumns: match, score, ranking, cargo, hatch, avgcargo, avghatch, cargodif, hatchdif
+    order: matchb2 ASC
   - 
     name: teamb3t
     type: table
-    key: match
+    key: matchb3
     keytitle: Match Number
     source: .match
     columns: 
@@ -450,28 +445,28 @@ variables:
         name: score
         title: Score
         type: average
-        source: $$match$$:$$teamb3$$.score
+        source: $$matchb3$$:$$teamb3$$.score
       - 
         name: ranking
         title: Ranking Points
         type: average
-        source: $$match$$:$$teamb3$$.rankpoints
+        source: $$matchb3$$:$$teamb3$$.rankpoints
       - 
         name: cscargo
         type: average
-        source: $$match$$:$$teamb3$$.cargoShipCargo
+        source: $$matchb3$$:$$teamb3$$.cargoShipCargo
       - 
         name: rcargo
         type: average
-        source: $$match$$:$$teamb3$$.rocketCargo
+        source: $$matchb3$$:$$teamb3$$.rocketCargo
       - 
         name: cshatch
         type: average
-        source: $$match$$:$$teamb3$$.cargoShipHatch
+        source: $$matchb3$$:$$teamb3$$.cargoShipHatch
       - 
         name: rhatch
         type: average
-        source: $$match$$:$$teamb3$$.rocketHatch
+        source: $$matchb3$$:$$teamb3$$.rocketHatch
       - 
         name: cargo
         title: Cargo
@@ -519,8 +514,7 @@ variables:
         type: sql
         source: (hatch - 0.0) - avghatch
     filter: score>0
-    order: match ASC
-    showcolumns: match, score, ranking, cargo, hatch, avgcargo, avghatch, cargodif, hatchdif
+    order: matchb3 ASC
 output: >-
   Match $$match$$ Preview<br>
   <span style="color:#FF0000">Red 1 - $$teamr1$$</span><br>
