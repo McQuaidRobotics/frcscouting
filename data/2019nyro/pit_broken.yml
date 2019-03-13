@@ -1,0 +1,38 @@
+---
+type: question
+id: pitbroken
+key: team
+role: pitscout
+priority: 7
+dataneeded: 0
+expvalue: 1
+variables:
+  - 
+    name: comment
+    source: $$team$$.comments
+    type: string
+inputs:
+  - 
+    type: label
+    label: The robot for team $$team$$ was marked as not working on the field, visit their pit and see if they have it fixed or need any help.<br><br>$$comment$$<br><br>
+    style: font-size:'+ht(17)+'px;
+  - 
+    type: text
+    label: Comment: 
+  - 
+    type: label
+    label: <br>
+  - 
+    type: submit
+    label: All Fixed
+    do:
+      - addtextdata $$team$$.comments Robot Repaired - $$val1$$
+      - markdone
+  - 
+    type: button
+    label: Check back later
+    do:
+      - delay $$team$$.pitbroken 20 minutes
+      - addquestion $$team$$.pitbroken
+      - addtextdata $$team$$.comments Pit Check back later - $$val1$$
+      - markdone

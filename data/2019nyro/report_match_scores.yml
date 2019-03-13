@@ -1,0 +1,30 @@
+---
+type: report
+id: matchscores
+key: 
+reqlevel: 1
+title: Match Scores
+variables:
+  - 
+    name: matches
+    type: table
+    key: matches
+    keytitle: Match Number
+    source: .match
+    columns: 
+      - 
+        name: bluescore
+        title: Blue Alliance
+        type: average
+        source: $$match$$.blue1.score
+        style: color:#00abFF;
+      - 
+        name: redscore
+        title: Red Alliance
+        type: average
+        source: $$match$$.red1.score
+        style: color:#FF0000;
+    order: matches asc
+output: >- 
+  Match Scores<br>
+  $$matches$$

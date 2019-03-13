@@ -1,0 +1,24 @@
+---
+type: question
+id: addmatch
+role: scoutmaster
+priority: 5
+dataneeded: 1
+expvalue: 2
+inputs:
+  - 
+    type: number
+    label: What match would you like to add?
+  - 
+    type: label
+    label: <br>
+  - 
+    type: submit
+    label: Submit
+    do:
+      - addtextdata .match $$val0$$
+      - eval scanq();
+      - addquestion $$val0$$.mastermatchteams
+      - eval $db->do("update question set numleft=0 where id='$$val0$$.matchteams'");
+      - markdone
+      - addquestion .addmatch

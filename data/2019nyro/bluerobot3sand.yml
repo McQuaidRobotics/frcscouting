@@ -1,0 +1,41 @@
+---
+type: question
+id: bluerobot3sand
+key: match
+role: matchscout
+priority: 7
+dataneeded: 0
+expvalue: 1
+variables:
+  -
+    name: team
+    source: $$match$$.blue3
+    type: string
+inputs:
+  -
+    type: label
+    label: You will be watching robot $$team$$ for match $$match$$
+    style: color:#00abFF;text-align:center
+  -
+    type: label
+    label: <B>SANDSTORM</B>
+    style: text-align:center
+  -
+    type: list
+    listdata: startlocation
+    label: Where did <font style="color:#00abFF">$$team$$</font> start?<br>
+    saveas: $$match$$:$$team$$.startlocation
+    style: margin-bottom:1em
+  - 
+    type: list
+    listdata: autonomous
+    label: <br>What did <font style="color:#00abFF">$$team$$</font> do during sandstorm?<br>
+    saveas: $$match$$:$$team$$.auto
+  - 
+    type: label
+    label: <br>
+  -
+    type: submit
+    label: Submit
+    do: 
+      - addquestion $$match$$.bluerobot3tele

@@ -1,0 +1,58 @@
+---
+type: question
+id: bluerobot3tele
+key: match
+role: matchscout
+priority: 6
+dataneeded: 0
+expvalue: 3
+variables:
+  - 
+    name: team
+    source: $$match$$.blue3
+    type: string
+inputs:
+  - 
+    type: label
+    label: Robot: $$team$$ for  match: $$match$$
+    style: color:#00abFF;text-align:center
+  -
+    type: label
+    label: <B>TELEOP</B>
+    style: text-align:center
+  - 
+    type: label
+    label: Hatches Scored:
+    style: text-align:center;color:#ffeb3b
+  - 
+    type: tally
+    label: <font style="color:#00abFF">Cargo Ship</font>
+    saveas: $$match$$:$$team$$.cargoShipHatch
+    style: color:#ffeb3b;width:70%;margin-bottom:1em;margin-left:auto;margin-right:auto;margin-top:1em;
+  - 
+    type: tally
+    label: <font style="color:#00abFF">Rocket</font>
+    saveas: $$match$$:$$team$$.rocketHatch
+    style: color:#ffeb3b;width:70%;margin-left:auto;margin-right:auto
+  - 
+    type: label
+    label: <br>Cargo Scored:
+    style: text-align:center;color:#ff8100
+  - 
+    type: tally
+    label: <font style="color:#00abFF">Cargo Ship</font>
+    saveas: $$match$$:$$team$$.cargoShipCargo
+    style: color:#ff8100;width:70%;margin-bottom:1em;margin-left:auto;margin-right:auto;margin-top:1em;
+  - 
+    type: tally
+    label: <font style="color:#00abFF">Rocket</font>
+    saveas: $$match$$:$$team$$.rocketCargo
+    style: color:#ff8100;width:70%;margin-left:auto;margin-right:auto;margin-bottom:1em;
+  - 
+    type: submit
+    label: Submit
+    style: display:block;margin:auto
+    do: 
+      - addquestion $$match$$.bluerobot3end
+      - eval $x=$$val6$$+$$val7$$;runaction("addnumdata $$match$$.$$team$$.cargo $x");
+      - eval $x=$$val3$$+$$val4$$;runaction("addnumdata $$match$$.$$team$$.hatch $x");

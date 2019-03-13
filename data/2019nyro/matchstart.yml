@@ -1,0 +1,25 @@
+---
+type: question
+id: matchstart
+key: match
+role: matchscout
+priority: 2
+dataneeded: 0
+expvalue: 1
+inputs:
+  - 
+    type: label
+    label: Please keep an eye on the field and click continue below when they are getting ready to start match $$match$$.<br><br>
+  - 
+    type: button
+    label: Continue
+    do:
+      - addquestion $$match$$.redrobot1sand
+      - addquestion $$match$$.redrobot2sand
+      - addquestion $$match$$.redrobot3sand
+      - addquestion $$match$$.bluerobot1sand
+      - addquestion $$match$$.bluerobot2sand
+      - addquestion $$match$$.bluerobot3sand
+      - eval $x=$$match$$;$x--;$db->do("update question set numleft=0 where id like '$x.ematch%'");
+      - eval $x=localtime();runaction("addtextdata $$match$$.timestarted $x");
+      - markdone

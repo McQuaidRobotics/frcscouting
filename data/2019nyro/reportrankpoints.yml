@@ -1,0 +1,33 @@
+---
+type: report
+id: reportrankings
+key: 
+reqlevel: 1
+title: Top Ranking Robots
+variables:
+  - 
+    name: data
+    type: table
+    key: team
+    keytitle: Team
+    source: .team
+    columns:
+      - 
+        name: totcnt
+        title: Matches Played
+        type: count
+        source: %:$$team$$.rankpoints
+      - 
+        name: avgpts
+        title: Average RP
+        type: average
+        source: %:$$team$$.rankpoints
+      - 
+        name: sumpts
+        title: Total RP
+        type: sum
+        source: %:$$team$$.rankpoints
+    order: avgpts desc
+output: >-
+  Top Ranking Robots<br>
+  $$data$$

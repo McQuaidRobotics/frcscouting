@@ -1,0 +1,11 @@
+---
+type: list
+id: autonomous
+populate:
+  - Nothing
+  - Move
+  - Cargo
+  - Hatch
+  - Multi-Hatch
+  - Multi-Cargo
+  - Cargo and Hatch

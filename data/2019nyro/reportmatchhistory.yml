@@ -1,0 +1,92 @@
+---
+type: report
+id: reportmatchhistory
+key: team
+reqlevel: 1
+title: Match History
+variables: 
+  - 
+    name: matches
+    type: table
+    key: match
+    keytitle: Match Number
+    source: .match
+    columns: 
+      - 
+        name: score
+        title: Score
+        type: average
+        source: $$match$$:$$team$$.score
+      - 
+        name: ranking
+        title: Ranking Points
+        type: average
+        source: $$match$$:$$team$$.rankpoints
+      - 
+        name: cscargo
+        type: average
+        source: $$match$$:$$team$$.cargoShipCargo
+      - 
+        name: rcargo
+        type: average
+        source: $$match$$:$$team$$.rocketCargo
+      - 
+        name: cshatch
+        type: average
+        source: $$match$$:$$team$$.cargoShipHatch
+      - 
+        name: rhatch
+        type: average
+        source: $$match$$:$$team$$.rocketHatch
+      - 
+        name: cargo
+        title: Cargo
+        type: sql
+        source: rcargo + cscargo
+      - 
+        name: hatch
+        title: Hatches
+        type: sql
+        source: rhatch + cshatch
+      - 
+        name: avgcscargo
+        type: average
+        source: %:$$team$$.cargoShipCargo
+      - 
+        name: avgrcargo
+        type: average
+        source: %:$$team$$.rocketCargo
+      - 
+        name: avgcshatch
+        type: average
+        source: %:$$team$$.cargoShipHatch
+      - 
+        name: avgrhatch
+        type: average
+        source: %:$$team$$.rocketHatch
+      - 
+        name: avgcargo
+        title: Average Cargo
+        type: sql
+        source: avgrcargo + avgcscargo
+      - 
+        name: avghatch
+        title: Average Hatches
+        type: sql
+        source: avgrhatch + avgcshatch
+      - 
+        name: cargodif
+        title: Cargo vs Average
+        type: sql
+        source: (cargo - 0.0) - avgcargo
+      - 
+        name: hatchdif
+        title: Hatches vs Average
+        type: sql
+        source: (hatch - 0.0) - avghatch
+    filter: score>0
+    order: match ASC
+    showcolumns: match, score, ranking, cargo, hatch, avgcargo, avghatch, cargodif, hatchdif
+output: >-
+  Team $$team$$<br>
+  $$matches$$

@@ -1,0 +1,124 @@
+---
+type: report
+id: reportteam
+key: team
+reqlevel: 1
+title: Robot Report
+variables:
+  - 
+    name: teamname
+    type: string
+    source: $$team$$.teamname
+  - 
+    name: teampic
+    type: string
+    source: $$team$$.robotphoto
+  - 
+    name: strategy
+    type: string
+    source: $$team$$.primarystrategyfocus
+  - 
+    name: cscargoavg
+    type: average
+    source: %:$$team$$.cargoShipCargo
+    filter: val>0
+  - 
+    name: rocketcargoavg
+    type: average
+    source: %:$$team$$.rocketCargo
+    filter: val>0
+  - 
+    name: cshatchavg
+    type: average
+    source: %:$$team$$.cargoShipHatch
+    filter: val>0
+  - 
+    name: rockethatchavg
+    type: average
+    source: %:$$team$$.rocketHatch
+    filter: val>0
+  - 
+    name: pitauto
+    type: string
+    source: $$team$$.pitauto
+  - 
+    name: canclimb
+    type: string
+    source: $$team$$.canclimb
+  - 
+    name: autotable
+    type: table
+    key: autonomous
+    keytitle: Actual Autonomous
+    source: .autonomous
+    columns:
+      - 
+        name: autocount
+        title: Number of Matches
+        type: stringcount
+        source: %:$$team$$.auto
+        filter: val='$$autonomous$$'
+    order: autocount desc
+    filter: autocount>0
+  - 
+    name: endtable
+    type: table
+    key: endgame
+    keytitle: Actual Endgame
+    source: .endgame
+    columns:
+      - 
+        name: endcount
+        title: Number of Matches
+        type: stringcount
+        source: %:$$team$$.endgame
+        filter: val='$$endgame$$'
+    order: endcount desc
+    filter: endcount>0
+  - 
+    name: planguage
+    type: string
+    source: $$team$$.planguage
+  - 
+    name: comments
+    type: commentlist
+    source: $$team$$.comments
+  - 
+    name: avgscore
+    type: average
+    source: %:$$team$$.score
+    filter: val>0
+  - 
+    name: avgrank
+    type: average
+    source: %:$$team$$.rankpoints
+  - 
+    name: numbats
+    type: average
+    source: $$team$$.numbatteries
+  - 
+    name: progtime
+    type: average
+    source: $$team$$.programingtime
+output: >-
+  Team $$team$$<br>
+  $$teamname$$<br>
+  <div style="width:7em;height:7em;background-image:url(/img/$$teampic$$.jpg);background-size:cover;background-position:center center;"></div>
+  <div style="font-size:50%;"><br>
+  Reported strategy - $$strategy$$<br>
+  Average Hatch - Cargo Ship - $$cshatchavg$$<br>
+  Average Hatch - Rocket $$rockethatchavg$$<br>
+  Average Cargo - Cargo Ship - $$cscargoavg$$<br>
+  Average Cargo - Rocket - $$rocketcargoavg$$<br>
+  Average Match Score - $$avgscore$$<br>
+  Average Ranking Points - $$avgrank$$<br>
+  <br>
+  Reported autonomous - $$pitauto$$<br>
+  $$autotable$$<br>
+  Reported can climb - $$canclimb$$<br>
+  $$endtable$$
+  <br>
+  Programming Language - $$planguage$$<br>
+  Number of Batteries- $$numbats$$<br>
+  Time of Programming- $$progtime$$<br>
+  $$comments$$

@@ -1,0 +1,46 @@
+---
+type: question
+id: redrobot2end
+key: match
+role: matchscout
+priority: 5
+dataneeded: 0
+expvalue: 1
+variables:
+  - 
+    name: team
+    source: $$match$$.red2
+    type: string
+inputs:
+  - 
+    type: label
+    label: You will be watching robot $$team$$ for match $$match$$
+    style: color:#FF0000;text-align:center
+  -
+    type: label
+    label: <B>ENDGAME</B>
+    style: text-align:center
+  - 
+    type: list
+    listdata: endgame
+    label: <br>Where did $$team$$ end
+    saveas: $$match$$:$$team$$.endgame
+    style: margin-bottom:1em
+  - 
+    type: list
+    listdata: climbhow
+    label: <br>How did they climb?
+    saveas: $$match$$:$$team$$.climbhow
+  - 
+    type: button
+    label: Report Breakdown
+    style: background-color:#FF0000;margin-bottom:1em
+    do: 
+      - addquestion $$team$$.ematchbroken
+  - 
+    type: submit
+    label: Submit
+    do: 
+      - eval $db->do("update question set numleft=0 where id like '$$match$$.blue%'");
+      - eval $db->do("update question set numleft=0 where id like '$$match$$.red%'");
+      - addquestion $$match$$.ematchscore

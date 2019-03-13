@@ -1,0 +1,39 @@
+---
+type: report
+id: reportcargo
+key: 
+reqlevel: 1
+title: Top Cargo Robots
+variables:
+  - 
+    name: data
+    type: table
+    key: team
+    keytitle: Team
+    source: .team
+    columns:
+      - 
+        name: totcnt
+        title: Total Matches
+        type: count
+        source: %:$$team$$.cargoShipCargo
+      - 
+        name: totcs
+        title: Cargo Ship Total
+        type: sum
+        source: %:$$team$$.cargoShipCargo
+      - 
+        name: totroc
+        title: Rocket Total
+        type: sum
+        source: %:$$team$$.rocketCargo
+      - 
+        name: switchavg
+        title: Cargo Average
+        type: sql
+        source: (totcs+totroc+0.0)/totcnt
+        filter: totcnt>0
+    order: switchavg desc
+output: >-
+  Top Cargo Robots<br>
+  $$data$$
