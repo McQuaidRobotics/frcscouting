@@ -523,15 +523,15 @@ variables:
     showcolumns: match, score, ranking, cargo, hatch, avgcargo, avghatch, cargodif, hatchdif
 output: >-
   Match $$match$$ Preview<br>
-  <span style:"color:#FF0000">Red 1 - $$teamr1$$</span><br>
+  <span style="color:#FF0000">Red 1 - $$teamr1$$</span><br>
   $$teamr1t$$<br>
-  <span style:"color:#FF0000">Red 2 - $$teamr2$$</span><br>
+  <span style="color:#FF0000">Red 2 - $$teamr2$$</span><br>
   $$teamr2t$$<br>
-  <span style:"color:#FF0000">Red 3 - $$teamr3$$</span><br>
+  <span style="color:#FF0000">Red 3 - $$teamr3$$</span><br>
   $$teamr3t$$<br>
-  <span style:"color:#00abFF">Blue 1 - $$teamb1$$</span><br>
+  <span style="color:#00abFF">Blue 1 - $$teamb1$$</span><br>
   $$teamb1t$$<br>
-  <span style:"color:#00abFF">Blue 2 - $$teamb2$$</span><br>
+  <span style="color:#00abFF">Blue 2 - $$teamb2$$</span><br>
   $$teamb2t$$<br>
-  <span style:"color:#00abFF">Blue 3 - $$teamb3$$</span><br>
+  <span style="color:#00abFF">Blue 3 - $$teamb3$$</span><br>
   $$teamb3t$$<br>
