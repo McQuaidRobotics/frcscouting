@@ -24,22 +24,18 @@ variables:
         source: $$match$$:$$team$$.rankpoints
       - 
         name: cscargo
-        title: Cargo
         type: average
         source: $$match$$:$$team$$.cargoShipCargo
       - 
         name: rcargo
-        title: Cargo
         type: average
         source: $$match$$:$$team$$.rocketCargo
       - 
         name: cshatch
-        title: Cargo
         type: average
         source: $$match$$:$$team$$.cargoShipHatch
       - 
         name: rhatch
-        title: Cargo
         type: average
         source: $$match$$:$$team$$.rocketHatch
       - 
@@ -49,7 +45,7 @@ variables:
         source: rcargo + cscargo
       - 
         name: hatch
-        title: Hatch
+        title: Hatches
         type: sql
         source: rhatch + cshatch
       - 
@@ -59,7 +55,7 @@ variables:
         source: avg(cargo)
       - 
         name: avghatch
-        title: Average Hatch
+        title: Average Hatches
         type: sql
         source: avg(hatch)
       - 
@@ -69,7 +65,7 @@ variables:
         source: (cargo - 0.0) - avgcargo
       - 
         name: hatchdif
-        title: Hatch vs Average
+        title: Hatches vs Average
         type: sql
         source: (hatch - 0.0) - avghatch
     filter: score>0

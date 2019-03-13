@@ -490,7 +490,7 @@ sub getvar{my $x=shift(@_);my $xx=shift(@_);my $kkk=shift(@_);my $ek=shift(@_);m
     my $t="create table temp (".$xx->{'key'}." varchar(64)";
     $a="<table border=1><tr><th>".$xx->{'keytitle'}."</th>";
     my $c=0;while($xx->{'columns'}->[$c]){
-      $a.="<th>".$xx->{'columns'}->[$c]->{'title'}."</th>";
+      if($xx->{'columns'}->[$c]->{'title'}){$a.="<th>".$xx->{'columns'}->[$c]->{'title'}."</th>";}
       my $tt="integer";if($xx->{'columns'}->[$c]->{'type'} eq 'string'){$tt="varchar(255)";}
       elsif($xx->{'columns'}->[$c]->{'type'} eq 'sql'){$tt="float";}
       $t.=", ".$xx->{'columns'}->[$c]->{'name'}." $tt";
