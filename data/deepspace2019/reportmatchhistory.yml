@@ -49,15 +49,41 @@ variables:
         type: sql
         source: rhatch + cshatch
       - 
+        name: avgcscargo
+        type: average
+        source: %:$$team$$.cargoShipCargo
+      - 
+        name: avgrcargo
+        type: average
+        source: %:$$team$$.rocketCargo
+      - 
+        name: avgcshatch
+        type: average
+        source: %:$$team$$.cargoShipHatch
+      - 
+        name: avgrhatch
+        type: average
+        source: %:$$team$$.rocketHatch
+      - 
+        name: cargo
+        title: Cargo
+        type: sql
+        source: rcargo + cscargo
+      - 
+        name: hatch
+        title: Hatches
+        type: sql
+        source: rhatch + cshatch
+      - 
         name: avgcargo
         title: Average Cargo
         type: sql
-        source: avg(cargo)
+        source: avgrcargo + avgcscargo
       - 
         name: avghatch
         title: Average Hatches
         type: sql
-        source: avg(hatch)
+        source: avgrhatch + avgcshatch
       - 
         name: cargodif
         title: Cargo vs Average
