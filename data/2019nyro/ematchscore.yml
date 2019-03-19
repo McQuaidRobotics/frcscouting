@@ -59,7 +59,7 @@ inputs:
     type: submit
     label: Submit To Next Match
     do:
-      - addnumdata $$match$$:$$teamr1$$.score $$val1$$
+      - eval $x=$$val1$$+$$val2$$+$$val3$$+$$val4$$;if($x>0){runaction("addnumdata $$match$$:$$teamr1$$.score $$val1$$");}
       - addnumdata $$match$$:$$teamr2$$.score $$val1$$
       - addnumdata $$match$$:$$teamr3$$.score $$val1$$
       - addnumdata $$match$$:$$teamr1$$.rankpoints $$val2$$
