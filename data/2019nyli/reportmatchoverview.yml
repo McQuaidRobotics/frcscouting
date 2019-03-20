@@ -1,0 +1,531 @@
+---
+type: report
+id: reportmatchpreview
+key: match
+reqlevel: 1
+title: Match Preview
+variables: 
+  - 
+    name: teamr1
+    source: $$match$$.red1
+    type: string
+  - 
+    name: teamr2
+    source: $$match$$.red2
+    type: string
+  - 
+    name: teamr3
+    source: $$match$$.red3
+    type: string
+  - 
+    name: teamb1
+    source: $$match$$.blue1
+    type: string
+  - 
+    name: teamb2
+    source: $$match$$.blue2
+    type: string
+  - 
+    name: teamb3
+    source: $$match$$.blue3
+    type: string
+  - 
+    name: teamr1t
+    type: table
+    key: matchr1
+    keytitle: Match Number
+    source: .match
+    columns: 
+      - 
+        name: score
+        title: Score
+        type: average
+        source: $$matchr1$$:$$teamr1$$.score
+      - 
+        name: ranking
+        title: Ranking Points
+        type: average
+        source: $$matchr1$$:$$teamr1$$.rankpoints
+      - 
+        name: cscargo
+        type: average
+        source: $$matchr1$$:$$teamr1$$.cargoShipCargo
+      - 
+        name: rcargo
+        type: average
+        source: $$matchr1$$:$$teamr1$$.rocketCargo
+      - 
+        name: cshatch
+        type: average
+        source: $$matchr1$$:$$teamr1$$.cargoShipHatch
+      - 
+        name: rhatch
+        type: average
+        source: $$matchr1$$:$$teamr1$$.rocketHatch
+      - 
+        name: cargo
+        title: Cargo
+        type: sql
+        source: rcargo + cscargo
+      - 
+        name: hatch
+        title: Hatches
+        type: sql
+        source: rhatch + cshatch
+      - 
+        name: avgcscargo
+        type: average
+        source: %:$$teamr1$$.cargoShipCargo
+      - 
+        name: avgrcargo
+        type: average
+        source: %:$$teamr1$$.rocketCargo
+      - 
+        name: avgcshatch
+        type: average
+        source: %:$$teamr1$$.cargoShipHatch
+      - 
+        name: avgrhatch
+        type: average
+        source: %:$$teamr1$$.rocketHatch
+      - 
+        name: avgcargo
+        title: Average Cargo
+        type: sql
+        source: avgrcargo + avgcscargo
+      - 
+        name: avghatch
+        title: Average Hatches
+        type: sql
+        source: avgrhatch + avgcshatch
+      - 
+        name: cargodif
+        title: Cargo vs Average
+        type: sql
+        source: (cargo - 0.0) - avgcargo
+      - 
+        name: hatchdif
+        title: Hatches vs Average
+        type: sql
+        source: (hatch - 0.0) - avghatch
+    filter: score>0
+    order: matchr1 ASC
+  - 
+    name: teamr2t
+    type: table
+    key: matchr2
+    keytitle: Match Number
+    source: .match
+    columns: 
+      - 
+        name: score
+        title: Score
+        type: average
+        source: $$matchr2$$:$$teamr2$$.score
+      - 
+        name: ranking
+        title: Ranking Points
+        type: average
+        source: $$matchr2$$:$$teamr2$$.rankpoints
+      - 
+        name: cscargo
+        type: average
+        source: $$matchr2$$:$$teamr2$$.cargoShipCargo
+      - 
+        name: rcargo
+        type: average
+        source: $$matchr2$$:$$teamr2$$.rocketCargo
+      - 
+        name: cshatch
+        type: average
+        source: $$matchr2$$:$$teamr2$$.cargoShipHatch
+      - 
+        name: rhatch
+        type: average
+        source: $$matchr2$$:$$teamr2$$.rocketHatch
+      - 
+        name: cargo
+        title: Cargo
+        type: sql
+        source: rcargo + cscargo
+      - 
+        name: hatch
+        title: Hatches
+        type: sql
+        source: rhatch + cshatch
+      - 
+        name: avgcscargo
+        type: average
+        source: %:$$teamr2$$.cargoShipCargo
+      - 
+        name: avgrcargo
+        type: average
+        source: %:$$teamr2$$.rocketCargo
+      - 
+        name: avgcshatch
+        type: average
+        source: %:$$teamr2$$.cargoShipHatch
+      - 
+        name: avgrhatch
+        type: average
+        source: %:$$teamr2$$.rocketHatch
+      - 
+        name: avgcargo
+        title: Average Cargo
+        type: sql
+        source: avgrcargo + avgcscargo
+      - 
+        name: avghatch
+        title: Average Hatches
+        type: sql
+        source: avgrhatch + avgcshatch
+      - 
+        name: cargodif
+        title: Cargo vs Average
+        type: sql
+        source: (cargo - 0.0) - avgcargo
+      - 
+        name: hatchdif
+        title: Hatches vs Average
+        type: sql
+        source: (hatch - 0.0) - avghatch
+    filter: score>0
+    order: matchr2 ASC
+  - 
+    name: teamr3t
+    type: table
+    key: matchr3
+    keytitle: Match Number
+    source: .match
+    columns: 
+      - 
+        name: score
+        title: Score
+        type: average
+        source: $$matchr3$$:$$teamr3$$.score
+      - 
+        name: ranking
+        title: Ranking Points
+        type: average
+        source: $$matchr3$$:$$teamr3$$.rankpoints
+      - 
+        name: cscargo
+        type: average
+        source: $$matchr3$$:$$teamr3$$.cargoShipCargo
+      - 
+        name: rcargo
+        type: average
+        source: $$matchr3$$:$$teamr3$$.rocketCargo
+      - 
+        name: cshatch
+        type: average
+        source: $$matchr3$$:$$teamr3$$.cargoShipHatch
+      - 
+        name: rhatch
+        type: average
+        source: $$matchr3$$:$$teamr3$$.rocketHatch
+      - 
+        name: cargo
+        title: Cargo
+        type: sql
+        source: rcargo + cscargo
+      - 
+        name: hatch
+        title: Hatches
+        type: sql
+        source: rhatch + cshatch
+      - 
+        name: avgcscargo
+        type: average
+        source: %:$$teamr3$$.cargoShipCargo
+      - 
+        name: avgrcargo
+        type: average
+        source: %:$$teamr3$$.rocketCargo
+      - 
+        name: avgcshatch
+        type: average
+        source: %:$$teamr3$$.cargoShipHatch
+      - 
+        name: avgrhatch
+        type: average
+        source: %:$$teamr3$$.rocketHatch
+      - 
+        name: avgcargo
+        title: Average Cargo
+        type: sql
+        source: avgrcargo + avgcscargo
+      - 
+        name: avghatch
+        title: Average Hatches
+        type: sql
+        source: avgrhatch + avgcshatch
+      - 
+        name: cargodif
+        title: Cargo vs Average
+        type: sql
+        source: (cargo - 0.0) - avgcargo
+      - 
+        name: hatchdif
+        title: Hatches vs Average
+        type: sql
+        source: (hatch - 0.0) - avghatch
+    filter: score>0
+    order: matchr3 ASC
+  - 
+    name: teamb1t
+    type: table
+    key: matchb1
+    keytitle: Match Number
+    source: .match
+    columns: 
+      - 
+        name: score
+        title: Score
+        type: average
+        source: $$matchb1$$:$$teamb1$$.score
+      - 
+        name: ranking
+        title: Ranking Points
+        type: average
+        source: $$matchb1$$:$$teamb1$$.rankpoints
+      - 
+        name: cscargo
+        type: average
+        source: $$matchb1$$:$$teamb1$$.cargoShipCargo
+      - 
+        name: rcargo
+        type: average
+        source: $$matchb1$$:$$teamb1$$.rocketCargo
+      - 
+        name: cshatch
+        type: average
+        source: $$matchb1$$:$$teamb1$$.cargoShipHatch
+      - 
+        name: rhatch
+        type: average
+        source: $$matchb1$$:$$teamb1$$.rocketHatch
+      - 
+        name: cargo
+        title: Cargo
+        type: sql
+        source: rcargo + cscargo
+      - 
+        name: hatch
+        title: Hatches
+        type: sql
+        source: rhatch + cshatch
+      - 
+        name: avgcscargo
+        type: average
+        source: %:$$teamb1$$.cargoShipCargo
+      - 
+        name: avgrcargo
+        type: average
+        source: %:$$teamb1$$.rocketCargo
+      - 
+        name: avgcshatch
+        type: average
+        source: %:$$teamb1$$.cargoShipHatch
+      - 
+        name: avgrhatch
+        type: average
+        source: %:$$teamb1$$.rocketHatch
+      - 
+        name: avgcargo
+        title: Average Cargo
+        type: sql
+        source: avgrcargo + avgcscargo
+      - 
+        name: avghatch
+        title: Average Hatches
+        type: sql
+        source: avgrhatch + avgcshatch
+      - 
+        name: cargodif
+        title: Cargo vs Average
+        type: sql
+        source: (cargo - 0.0) - avgcargo
+      - 
+        name: hatchdif
+        title: Hatches vs Average
+        type: sql
+        source: (hatch - 0.0) - avghatch
+    filter: score>0
+    order: matchb1 ASC
+  - 
+    name: teamb2t
+    type: table
+    key: matchb2
+    keytitle: Match Number
+    source: .match
+    columns: 
+      - 
+        name: score
+        title: Score
+        type: average
+        source: $$matchb2$$:$$teamb2$$.score
+      - 
+        name: ranking
+        title: Ranking Points
+        type: average
+        source: $$matchb2$$:$$teamb2$$.rankpoints
+      - 
+        name: cscargo
+        type: average
+        source: $$matchb2$$:$$teamb2$$.cargoShipCargo
+      - 
+        name: rcargo
+        type: average
+        source: $$matchb2$$:$$teamb2$$.rocketCargo
+      - 
+        name: cshatch
+        type: average
+        source: $$matchb2$$:$$teamb2$$.cargoShipHatch
+      - 
+        name: rhatch
+        type: average
+        source: $$matchb2$$:$$teamb2$$.rocketHatch
+      - 
+        name: cargo
+        title: Cargo
+        type: sql
+        source: rcargo + cscargo
+      - 
+        name: hatch
+        title: Hatches
+        type: sql
+        source: rhatch + cshatch
+      - 
+        name: avgcscargo
+        type: average
+        source: %:$$teamb2$$.cargoShipCargo
+      - 
+        name: avgrcargo
+        type: average
+        source: %:$$teamb2$$.rocketCargo
+      - 
+        name: avgcshatch
+        type: average
+        source: %:$$teamb2$$.cargoShipHatch
+      - 
+        name: avgrhatch
+        type: average
+        source: %:$$teamb2$$.rocketHatch
+      - 
+        name: avgcargo
+        title: Average Cargo
+        type: sql
+        source: avgrcargo + avgcscargo
+      - 
+        name: avghatch
+        title: Average Hatches
+        type: sql
+        source: avgrhatch + avgcshatch
+      - 
+        name: cargodif
+        title: Cargo vs Average
+        type: sql
+        source: (cargo - 0.0) - avgcargo
+      - 
+        name: hatchdif
+        title: Hatches vs Average
+        type: sql
+        source: (hatch - 0.0) - avghatch
+    filter: score>0
+    order: matchb2 ASC
+  - 
+    name: teamb3t
+    type: table
+    key: matchb3
+    keytitle: Match Number
+    source: .match
+    columns: 
+      - 
+        name: score
+        title: Score
+        type: average
+        source: $$matchb3$$:$$teamb3$$.score
+      - 
+        name: ranking
+        title: Ranking Points
+        type: average
+        source: $$matchb3$$:$$teamb3$$.rankpoints
+      - 
+        name: cscargo
+        type: average
+        source: $$matchb3$$:$$teamb3$$.cargoShipCargo
+      - 
+        name: rcargo
+        type: average
+        source: $$matchb3$$:$$teamb3$$.rocketCargo
+      - 
+        name: cshatch
+        type: average
+        source: $$matchb3$$:$$teamb3$$.cargoShipHatch
+      - 
+        name: rhatch
+        type: average
+        source: $$matchb3$$:$$teamb3$$.rocketHatch
+      - 
+        name: cargo
+        title: Cargo
+        type: sql
+        source: rcargo + cscargo
+      - 
+        name: hatch
+        title: Hatches
+        type: sql
+        source: rhatch + cshatch
+      - 
+        name: avgcscargo
+        type: average
+        source: %:$$teamb3$$.cargoShipCargo
+      - 
+        name: avgrcargo
+        type: average
+        source: %:$$teamb3$$.rocketCargo
+      - 
+        name: avgcshatch
+        type: average
+        source: %:$$teamb3$$.cargoShipHatch
+      - 
+        name: avgrhatch
+        type: average
+        source: %:$$teamb3$$.rocketHatch
+      - 
+        name: avgcargo
+        title: Average Cargo
+        type: sql
+        source: avgrcargo + avgcscargo
+      - 
+        name: avghatch
+        title: Average Hatches
+        type: sql
+        source: avgrhatch + avgcshatch
+      - 
+        name: cargodif
+        title: Cargo vs Average
+        type: sql
+        source: (cargo - 0.0) - avgcargo
+      - 
+        name: hatchdif
+        title: Hatches vs Average
+        type: sql
+        source: (hatch - 0.0) - avghatch
+    filter: score>0
+    order: matchb3 ASC
+output: >-
+  Match $$match$$ Preview<br>
+  <span style="color:#FF0000">Red 1 - $$teamr1$$</span><br>
+  $$teamr1t$$<br>
+  <span style="color:#FF0000">Red 2 - $$teamr2$$</span><br>
+  $$teamr2t$$<br>
+  <span style="color:#FF0000">Red 3 - $$teamr3$$</span><br>
+  $$teamr3t$$<br>
+  <span style="color:#00abFF">Blue 1 - $$teamb1$$</span><br>
+  $$teamb1t$$<br>
+  <span style="color:#00abFF">Blue 2 - $$teamb2$$</span><br>
+  $$teamb2t$$<br>
+  <span style="color:#00abFF">Blue 3 - $$teamb3$$</span><br>
+  $$teamb3t$$<br>

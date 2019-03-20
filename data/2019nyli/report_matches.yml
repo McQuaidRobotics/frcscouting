@@ -1,0 +1,29 @@
+---
+type: report
+id: matchreport
+key:
+reqlevel: 5
+title: Matches in Queue
+role: scoutmaster
+variables:
+  - 
+    name: matches
+    type: table
+    key: match
+    keytitle: Matches
+    source: .match
+    columns: 
+      - 
+        name: timestart
+        title: Time Started
+        type: string
+        source: $$match$$.timestarted
+      - 
+        name: cargoscored
+        title: Cargo Scored
+        type: sum
+        source: $$match$$:%.cargoShipCargo
+    order: match asc
+output: >- 
+  Matches in System<br>
+  $$matches$$

@@ -1,0 +1,7 @@
+---
+type: list
+id: tactic
+populate:
+  - Hatch
+  - Cargo
+  - Climb

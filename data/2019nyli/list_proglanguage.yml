@@ -1,0 +1,7 @@
+---
+type: list
+id: planguage
+populate:
+  - LabVIEW
+  - C++
+  - Java

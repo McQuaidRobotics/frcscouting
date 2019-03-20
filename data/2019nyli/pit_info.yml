@@ -1,0 +1,80 @@
+---
+type: question
+id: pitinfo
+key: team
+role: pitscout
+priority: 7
+dataneeded: 1
+expvalue: 8
+inputs:
+  -
+    type: label
+    label: Please visit the pit for team $$team$$ and answer the following questions:<br>
+  - 
+    type: list
+    listdata: tactic
+    label: <br>What is the primary strategy focus?
+    saveas: $$team$$.primarystrategyfocus
+  - 
+    type: list
+    listdata: tactic
+    label: <br>What is the secondary strategy focus?
+    saveas: $$team$$.secondarystrategyfocus
+  - 
+    type: list
+    listdata: tactic
+    label: <br>What is the tertiary strategy focus?
+    saveas: $$team$$.tertiarystrategyfocus
+  - 
+    type: list
+    listdata: sandstormtype
+    label: <br>What kind of sandstorm does the robot have: Vision/Camera or Autonounomous?
+    saveas: $$team$$.howdosand
+  - 
+    type: list
+    listdata: autonomous
+    label: <br>What does the robot do in sandstorm?
+    saveas: $$team$$.pitauto
+  - 
+    type: list
+    listdata: yesno
+    label: <br>Can the robot climb?
+    saveas: $$team$$.canclimb
+  -
+    type: list
+    listdata: endgame 
+    label: <br>To what level can your robot climb?
+    saveas: $$team$$.climblevel
+  -
+    type: list
+    listdata: yesno 
+    label: <br>Does your robot support other robots while climbing?
+    saveas: $$team$$.supportclimb
+  - 
+    type: list
+    listdata: planguage
+    label: <br>What language does your team use to program the robot?
+    saveas: $$team$$.planguage
+  -
+    type: number
+    label: <br>How many hours did your team have to program your robot?
+    saveas: $$team$$.programingtime
+  - 
+    type: number
+    label: <br>How many batteries does your team have?
+    saveas: $$team$$.numbatteries
+  - 
+    type: picture
+    label: <br>Take a picture of the robot for team $$team$$<br>
+    saveas: $$team$$.robotphoto
+  -
+    type: text
+    label: <br>Anything unusual or special to note about the robot?
+  -
+    type: label
+    label: <br>
+  -
+    type: submit
+    label: Submit
+    do:
+      - eval $x='$$val13$$';if($x){runaction("addtextdata $$team$$.comments Pit Scout - $x");}

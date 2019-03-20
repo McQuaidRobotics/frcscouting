@@ -1,0 +1,33 @@
+---
+type: report
+id: reportrobotscores
+key: 
+reqlevel: 1
+title: Top Match Scoring Robots
+variables:
+  - 
+    name: data
+    type: table
+    key: team
+    keytitle: Team
+    source: .team
+    columns:
+      - 
+        name: totcnt
+        title: Matches Played
+        type: count
+        source: %:$$team$$.score
+      - 
+        name: totpts
+        title: Total Points Scored
+        type: sum
+        source: %:$$team$$.score
+      - 
+        name: avgpts
+        title: Average Points Scored
+        type: average
+        source: %:$$team$$.score
+    order: avgpts desc
+output: >-
+  Top Match Scoring Robots<br>
+  $$data$$

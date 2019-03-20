@@ -2,7 +2,7 @@
 type: question
 id: ematchscore
 key: match
-role: scoutmaster
+role: matchscout
 priority: 3
 dataneeded: 0
 expvalue: 2
@@ -59,7 +59,18 @@ inputs:
     type: submit
     label: Submit To Next Match
     do:
-      - eval $x=$$val1$$+$$val2$$+$$val3$$+$$val4$$;if($x>0){runaction("addnumdata $$match$$:$$teamr1$$.score $$val1$$");runaction("addnumdata $$match$$:$$teamr2$$.score $$val1$$");runaction("addnumdata $$match$$:$$teamr3$$.score $$val1$$");runaction("addnumdata $$match$$:$$teamr1$$.rankpoints $$val2$$");runaction("addnumdata $$match$$:$$teamr2$$.rankpoints $$val2$$");runaction("addnumdata $$match$$:$$teamr3$$.rankpoints $$val2$$");runaction("addnumdata $$match$$:$$teamb1$$.score $$val3$$");runaction("addnumdata $$match$$:$$teamb2$$.score $$val3$$");runaction("addnumdata $$match$$:$$teamb3$$.score $$val3$$");runaction("addnumdata $$match$$:$$teamb1$$.rankpoints $$val4$$");runaction("addnumdata $$match$$:$$teamb2$$.rankpoints $$val4$$");runaction("addnumdata $$match$$:$$teamb3$$.rankpoints $$val4$$");}
+      - eval $x=$$val1$$+$$val2$$+$$val3$$+$$val4$$;if($x>0){runaction("addnumdata $$match$$:$$teamr1$$.score $$val1$$");}
+      - addnumdata $$match$$:$$teamr2$$.score $$val1$$
+      - addnumdata $$match$$:$$teamr3$$.score $$val1$$
+      - addnumdata $$match$$:$$teamr1$$.rankpoints $$val2$$
+      - addnumdata $$match$$:$$teamr2$$.rankpoints $$val2$$
+      - addnumdata $$match$$:$$teamr3$$.rankpoints $$val2$$
+      - addnumdata $$match$$:$$teamb1$$.score $$val3$$
+      - addnumdata $$match$$:$$teamb2$$.score $$val3$$
+      - addnumdata $$match$$:$$teamb3$$.score $$val3$$
+      - addnumdata $$match$$:$$teamb1$$.rankpoints $$val4$$
+      - addnumdata $$match$$:$$teamb2$$.rankpoints $$val4$$
+      - addnumdata $$match$$:$$teamb3$$.rankpoints $$val4$$
       - eval $x=$$match$$;$x++;runaction("addquestion $x.matchstart");
       - eval $x=localtime();runaction("addtextdata $$match$$.timeended $x");
       - markdone

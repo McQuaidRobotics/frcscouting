@@ -2,8 +2,8 @@
 type: question
 id: matchstart
 key: match
-role: scoutmaster
-priority: 3
+role: matchscout
+priority: 2
 dataneeded: 0
 expvalue: 1
 inputs:
@@ -20,7 +20,6 @@ inputs:
       - addquestion $$match$$.bluerobot1sand
       - addquestion $$match$$.bluerobot2sand
       - addquestion $$match$$.bluerobot3sand
-      - addquestion $$match$$.robotclimbs
       - eval $x=$$match$$;$x--;$db->do("update question set numleft=0 where id like '$x.ematch%'");
       - eval $x=localtime();runaction("addtextdata $$match$$.timestarted $x");
       - markdone

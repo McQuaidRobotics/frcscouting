@@ -8,7 +8,7 @@ variables:
   - 
     name: matches
     type: table
-    key: match
+    key: matches
     keytitle: Match Number
     source: .match
     columns: 
