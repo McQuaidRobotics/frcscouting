@@ -3,7 +3,7 @@ type: question
 id: teamname
 key: team
 role: dataentry
-priority: 6
+priority: 100
 dataneeded: 1
 expvalue: 2
 inputs:
